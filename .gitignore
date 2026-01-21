@@ -1,3 +1,6 @@
+# cli runs
+.cache
+
 # dependencies (bun install)
 node_modules
 
