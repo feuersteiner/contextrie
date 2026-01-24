@@ -27,8 +27,8 @@ bun run lint:fix     # Auto-fix lint issues
 contextrie/
 ├── core/           # The engine: ingest → assess → compose pipeline
 │   ├── ingest/     # Data ingestion, source types
-│   ├── assess/     # Evaluation and scoring
-│   └── compose/    # Output generation
+│   ├── assess/     # Evaluation and scoring for sources for each prompt
+│   └── compose/    # Output generation, composing the context for the LLM
 ├── client/         # Public API (Contextrie class)
 ├── cli/            # Command-line interface
 └── index.ts        # Library entry point
