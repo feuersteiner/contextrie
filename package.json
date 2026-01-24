@@ -10,11 +10,10 @@
     ".": "./index.ts"
   },
   "bin": {
-    "contextrie": "./cli.ts"
+    "contextrie": "./cli/index.ts"
   },
   "scripts": {
     "dev": "bun --hot ./index.ts",
-    "cli": "bun ./cli.ts",
     "link": "bun link",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -28,5 +27,9 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^2.0.16",
+    "ai": "^6.0.43"
   }
 }
