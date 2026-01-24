@@ -1,8 +1,10 @@
-export interface SourceBase {
-  id: string;
+export interface GeneratedMetadata {
   title: string;
   description: string;
   keypoints: string[];
+}
+export interface SourceBase extends GeneratedMetadata {
+  id: string;
 }
 
 export interface DocumentSource extends SourceBase {
@@ -21,3 +23,10 @@ export interface CollectionSource<T> extends SourceBase {
 }
 
 export type Source = DocumentSource | ListSource | CollectionSource<any>;
+
+export type SupportedFileType = "md" | "txt" | "csv";
+
+export interface PendingFile {
+  path: string;
+  type: SupportedFileType;
+}
