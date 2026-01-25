@@ -24,9 +24,9 @@ export interface CollectionSource<T> extends SourceBase {
 
 export type Source = DocumentSource | ListSource | CollectionSource<any>;
 
-export type SupportedFileType = "md" | "txt" | "csv";
+export type SupportedSourceType = "md" | "txt" | "csv";
 
-export interface PendingFile {
+export interface QueuedSource {
   path: string;
-  type: SupportedFileType;
+  type: SupportedSourceType;
 }

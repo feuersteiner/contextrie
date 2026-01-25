@@ -1,4 +1,4 @@
 export * from "./types";
-export * from "./ingest";
+export * from "./ingester";
 export * from "./parsers";
 export * from "./metadata";

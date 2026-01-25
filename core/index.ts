@@ -1,3 +1,3 @@
-export * from "./ingest";
+export * from "./ingester";
 export * from "./assess";
 export * from "./compose";
