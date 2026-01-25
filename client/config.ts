@@ -6,7 +6,7 @@ const ollama = createOpenAICompatible({
   baseURL: "http://localhost:11434/v1",
 });
 
-export interface IngestConfig {
+export interface IngesterConfig {
   model: LanguageModel;
 }
 
@@ -20,7 +20,7 @@ export interface ComposeConfig {
 
 export interface ContextrieConfig {
   outputDir: string;
-  ingest: IngestConfig;
+  ingest: IngesterConfig;
   assess: AssessConfig;
   compose: ComposeConfig;
 }
