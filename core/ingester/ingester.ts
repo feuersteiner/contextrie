@@ -1,21 +1,23 @@
 import humanId from "human-id";
-import type { IngestConfig } from "../../client/config";
+import type { IngesterConfig } from "../../client/config";
 import type {
   Source,
   DocumentSource,
   ListSource,
-  PendingFile,
-  SupportedFileType,
+  QueuedSource,
+  SupportedSourceType,
 } from "./types";
 import { parseMarkdown, parseText, parseCSV } from "./parsers";
 import { generateMetadata } from "./metadata";
 
-export class ContextrieIngest {
-  private config: IngestConfig;
-  private pendingFiles: PendingFile[] = [];
+export class Ingester {
+  private config: IngesterConfig;
+  private queue: QueuedSource[] = [];
+  private onComplete?: (sources: Source[]) => void;
 
-  constructor(config: IngestConfig) {
+  constructor(config: IngesterConfig, onComplete?: (sources: Source[]) => void) {
     this.config = config;
+    this.onComplete = onComplete;
   }
 
   /**
@@ -25,11 +27,11 @@ export class ContextrieIngest {
    */
   file = (filePath: string): this => {
     const extension = this.getFileExtension(filePath);
-    const fileType = this.mapExtensionToType(extension);
+    const sourceType = this.mapExtensionToType(extension);
 
-    this.pendingFiles.push({
+    this.queue.push({
       path: filePath,
-      type: fileType,
+      type: sourceType,
     });
 
     return this;
@@ -39,21 +41,22 @@ export class ContextrieIngest {
    * Process all pending files and return Source array
    * @returns Promise<Source[]>
    */
-  ingest = async (): Promise<Source[]> => {
+  run = async (): Promise<Source[]> => {
     const sources: Source[] = [];
 
     await Promise.all(
-      this.pendingFiles.map(async (file) => {
+      this.queue.map(async (queued) => {
         try {
-          const source = await this.processFile(file);
+          const source = await this.processQueuedSource(queued);
           sources.push(source);
         } catch (error) {
-          console.error(`Error processing file ${file.path}:`, error);
+          console.error(`Error processing file ${queued.path}:`, error);
         }
       }),
     );
 
-    this.pendingFiles = [];
+    this.queue = [];
+    this.onComplete?.(sources);
 
     return sources;
   };
@@ -67,21 +70,21 @@ export class ContextrieIngest {
     return parts[parts.length - 1]!.toLowerCase();
   };
 
-  private mapExtensionToType = (extension: string): SupportedFileType => {
-    const mapping: Record<string, SupportedFileType> = {
+  private mapExtensionToType = (extension: string): SupportedSourceType => {
+    const mapping: Record<string, SupportedSourceType> = {
       md: "md",
       txt: "txt",
       csv: "csv",
     };
 
-    const fileType = mapping[extension];
-    if (!fileType) {
+    const sourceType = mapping[extension];
+    if (!sourceType) {
       throw new Error(
         `Unsupported file type: .${extension}. Supported types: .md, .txt, .csv`,
       );
     }
 
-    return fileType;
+    return sourceType;
   };
 
   private generateId = (): string =>
@@ -91,18 +94,18 @@ export class ContextrieIngest {
       separator: "-",
     })}-${Math.random().toString(36).substring(2, 8)}`;
 
-  private processFile = async (file: PendingFile): Promise<Source> => {
-    const fileContent = await Bun.file(file.path).text();
+  private processQueuedSource = async (queued: QueuedSource): Promise<Source> => {
+    const fileContent = await Bun.file(queued.path).text();
 
-    switch (file.type) {
+    switch (queued.type) {
       case "md":
-        return this.processMarkdown(file.path, fileContent);
+        return this.processMarkdown(queued.path, fileContent);
       case "txt":
-        return this.processText(file.path, fileContent);
+        return this.processText(queued.path, fileContent);
       case "csv":
-        return this.processCSV(file.path, fileContent);
+        return this.processCSV(queued.path, fileContent);
       default:
-        throw new Error(`Unknown file type: ${file.type}`);
+        throw new Error(`Unknown file type: ${queued.type}`);
     }
   };
 
