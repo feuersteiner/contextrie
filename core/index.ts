@@ -1,3 +1,4 @@
 export * from "./ingester";
-export * from "./assess";
+export * from "./assessor";
 export * from "./compose";
+export * from "./session";
