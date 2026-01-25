@@ -1,0 +1,16 @@
+id,title,short_summary,risk_level
+c1,Termination for Cause,"Material breach after 30-day cure. Includes: SLA failures 3+ months, security negligence, compliance failures. Full refund + direct damages.",high
+c2,Termination for Convenience,"90 days notice. 25% early termination fee—waived if vendor breach.",medium
+c3,SLA Tier-1 Critical,"99.99% uptime (max 52min/year). Credits NOT exclusive remedy if downtime >4hrs in 30 days—direct damages allowed.",critical
+c4,SLA Tier-2 Essential,"99.95% uptime. Service credits ARE exclusive remedy for Tier-2.",high
+c5,Disaster Recovery,"500-mile geographic redundancy. RPO 15min, RTO 1hr. Quarterly failover testing REQUIRED—failure to test = material breach.",critical
+c6,Data Security,"SOC2, ISO27001 required. Vendor liable for breaches from negligence.",critical
+c7,Incident Notification,"Must notify within 4 HOURS. Failure = material breach + enhanced indemnification.",critical
+c8,Liability Cap,"Capped at greater of 24-month fees or $10M.",high
+c9,Liability Exclusions,"Cap DOES NOT apply to: security breaches from negligence, regulatory fines, indemnification, willful misconduct, confidentiality breach.",critical
+c10,Vendor Indemnification,"Vendor indemnifies for: security breaches, regulatory actions from vendor failures, data breach costs, third-party claims.",critical
+c11,Data Export,"Customer can export anytime. 60 days free assistance post-termination.",high
+c12,Audit Rights,"Annual audits + immediate audit after any security incident. Docs within 10 days.",high
+c13,Force Majeure,"No relief if event foreseeable OR vendor failed reasonable contingency. Does not excuse security notification.",medium
+c14,Billing Accuracy,"Disputed charges within 60 days. Intentional overbilling = material breach.",medium
+c15,Regulatory Cooperation,"Full cooperation with exams. Docs within 10 business days.",critical
