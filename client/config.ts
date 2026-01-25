@@ -10,7 +10,7 @@ export interface IngesterConfig {
   model: LanguageModel;
 }
 
-export interface AssessConfig {
+export interface AssessorConfig {
   model: LanguageModel;
 }
 
@@ -20,17 +20,17 @@ export interface ComposeConfig {
 
 export interface ContextrieConfig {
   outputDir: string;
-  ingest: IngesterConfig;
-  assess: AssessConfig;
+  ingester: IngesterConfig;
+  assessor: AssessorConfig;
   compose: ComposeConfig;
 }
 
 export const DEFAULT_CONFIG: ContextrieConfig = {
   outputDir: ".contextrie",
-  ingest: {
+  ingester: {
     model: ollama.languageModel("llama3.2"),
   },
-  assess: {
+  assessor: {
     model: ollama.languageModel("llama3.2"),
   },
   compose: {
