@@ -66,7 +66,12 @@ This also works for conversation history. Each message can be compacted, with ke
           "value": "API 401 errors, v2 endpoint, deadline Friday."
         }
       ],
-      "keyPoints": ["API integration issue", "401 auth errors", "v2 endpoint", "Friday deadline"]
+      "keyPoints": [
+        "API integration issue",
+        "401 auth errors",
+        "v2 endpoint",
+        "Friday deadline"
+      ]
     },
     {
       "role": "assistant",
