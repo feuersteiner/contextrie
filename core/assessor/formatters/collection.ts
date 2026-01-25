@@ -1,7 +1,9 @@
 import type { CollectionSource } from "../../ingester/types";
 import { SourceFormatter } from "./base";
 
-export class CollectionFormatter extends SourceFormatter<CollectionSource<unknown>> {
+export class CollectionFormatter extends SourceFormatter<
+  CollectionSource<unknown>
+> {
   protected formatDeep(source: CollectionSource<unknown>): string[] {
     // TODO: could score each record individually
     const content = JSON.stringify(source.content, null, 2);
