@@ -1,4 +1,4 @@
-import { humanId } from "human-id";
+import humanId from "human-id";
 import type { IngestConfig } from "../../client/config";
 import type {
   Source,
@@ -84,13 +84,12 @@ export class ContextrieIngest {
     return fileType;
   };
 
-  private generateId = (): string => {
-    return humanId({
-      adjectiveCount: 1,
+  private generateId = (): string =>
+    `${humanId({
+      adjectiveCount: 2,
       capitalize: false,
       separator: "-",
-    });
-  };
+    })}-${Math.random().toString(36).substring(2, 8)}`;
 
   private processFile = async (file: PendingFile): Promise<Source> => {
     const fileContent = await Bun.file(file.path).text();
