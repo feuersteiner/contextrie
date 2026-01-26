@@ -1,6 +1,7 @@
 export * from "./config";
 import { Ingester, type Source } from "../core/ingester";
 import { Assessor } from "../core/assessor";
+import { Composer } from "../core/compose";
 import { DEFAULT_CONFIG, type ContextrieConfig } from "./config";
 
 export class Contextrie {
@@ -38,5 +39,21 @@ export class Contextrie {
    */
   get assess(): Assessor {
     return new Assessor(this.config.assessor);
+  }
+
+  /**
+   * Returns a fresh Composer builder for composing context.
+   *
+   * Usage:
+   * ```typescript
+   * const markdown = await ctx.compose
+   *   .task("Explain authentication flow")
+   *   .from(assessment.rated)
+   *   .threshold(0.5)  // optional
+   *   .run();
+   * ```
+   */
+  get compose(): Composer {
+    return new Composer(this.config.compose);
   }
 }
