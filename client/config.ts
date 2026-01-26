@@ -1,5 +1,6 @@
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import type { LanguageModel } from "ai";
+import type { DensityValue } from "../core/compose/density";
 
 const ollama = createOpenAICompatible({
   name: "ollama",
@@ -16,6 +17,8 @@ export interface AssessorConfig {
 
 export interface ComposeConfig {
   model: LanguageModel;
+  defaultThreshold: number;
+  defaultDensity?: DensityValue;
 }
 
 export interface ContextrieConfig {
@@ -35,5 +38,7 @@ export const DEFAULT_CONFIG: ContextrieConfig = {
   },
   compose: {
     model: ollama.languageModel("llama3.2"),
+    defaultThreshold: 0.65,
+    defaultDensity: "minimal",
   },
 };
