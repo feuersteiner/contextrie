@@ -17,6 +17,10 @@ async function runDemo() {
     assessor: {
       model,
     },
+    compose: {
+      model,
+      defaultThreshold: 0.65,
+    },
   });
 
   console.log("Ingesting demo sources...");
@@ -50,6 +54,15 @@ async function runDemo() {
       `${rated.source.id} (${rated.relevance}): ${rated.source.title}`,
     );
   }
+
+  console.log("\n--- Composing context (sparse density) ---");
+  const context = await ctx.compose
+    .task(task)
+    .from(shallow.rated)
+    .density("minimal") // 'minimal'|'sparse'|'balanced'|'detailed'|'thorough' or 0-1
+    .run();
+
+  console.log(context);
 }
 
 runDemo().catch((err) => {
