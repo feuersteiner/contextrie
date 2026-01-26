@@ -10,12 +10,17 @@ import type {
 import { parseMarkdown, parseText, parseCSV } from "./parsers";
 import { generateMetadata } from "./metadata";
 
+export type { Source, DocumentSource, ListSource } from "./types";
+
 export class Ingester {
   private config: IngesterConfig;
   private queue: QueuedSource[] = [];
   private onComplete?: (sources: Source[]) => void;
 
-  constructor(config: IngesterConfig, onComplete?: (sources: Source[]) => void) {
+  constructor(
+    config: IngesterConfig,
+    onComplete?: (sources: Source[]) => void,
+  ) {
     this.config = config;
     this.onComplete = onComplete;
   }
@@ -94,7 +99,9 @@ export class Ingester {
       separator: "-",
     })}-${Math.random().toString(36).substring(2, 8)}`;
 
-  private processQueuedSource = async (queued: QueuedSource): Promise<Source> => {
+  private processQueuedSource = async (
+    queued: QueuedSource,
+  ): Promise<Source> => {
     const fileContent = await Bun.file(queued.path).text();
 
     switch (queued.type) {
