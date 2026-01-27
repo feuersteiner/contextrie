@@ -1,10 +1,6 @@
 import { createAzure } from "@ai-sdk/azure";
 import { Contextrie } from "../client";
-
-// Azure OpenAI configuration (see https://ai-sdk.dev/providers/ai-sdk-providers/azure)
-const resourceName = "change-me";
-const apiKey = "change-me";
-const deploymentName = "change-me";
+import { resourceName, apiKey, deploymentName } from "./keys";
 
 const azure = createAzure({ resourceName, apiKey });
 const model = azure(deploymentName);
