@@ -1,8 +1,6 @@
 # Contextrie
 
-Context orchestration for agentic systems.
-
-Focuses on selecting the right information at the right time for multi-step workflows like contract review, incident triage, and agent tool planning.
+AI agents lose performance as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.
 
 ## Quickstart
 
