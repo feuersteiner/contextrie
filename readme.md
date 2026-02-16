@@ -1,6 +1,45 @@
 # Contextrie
 
-Context orchestration for agentic systems.
+AI agents lose performance as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.
+
+## Quickstart
+
+```bash
+bun add contextrie
+```
+
+```typescript
+import { Contextrie } from "contextrie";
+
+const ctx = new Contextrie({
+  ingester: { model },
+  assessor: { model },
+  compose: { model },
+});
+
+await ctx.ingest.file("./docs/contract.md").file("./docs/clauses.csv").run();
+
+const assessment = await ctx.assess
+  .task("Find clauses about SLA violations")
+  .from(ctx.sources)
+  .run();
+
+const context = await ctx.compose
+  .task("Find clauses about SLA violations")
+  .from(assessment.rated)
+  .density("balanced")
+  .run();
+
+console.log(context);
+```
+
+## Key Capabilities
+
+- Ingest files and generate compact, searchable metadata
+- Assess relevance per task with shallow or deep scoring
+- Compose compressed context with controllable density
+- Preserve source lineage for later expansion
+- Built for multi-step, agentic workflows
 
 ## Why Contextrie?
 
@@ -27,11 +66,13 @@ await ctx.ingest
 ```
 
 **Supported file types:**
+
 - `.md` (Markdown) → DocumentSource
 - `.txt` (Text) → DocumentSource
 - `.csv` (CSV) → ListSource
 
 For each file, the Ingester generates:
+
 - **title**: Concise, searchable name
 - **description**: High-compression summary (essential meaning only)
 - **keypoints**: Atomic facts/concepts that act as "hooks" for relevance matching
@@ -61,6 +102,7 @@ const result = await ctx.assess
 ```
 
 **Two scoring modes:**
+
 - **Shallow (default)**: Fast scoring using only metadata (title, description, keypoints)
 - **Deep**: More accurate scoring that includes full content
 
@@ -74,6 +116,7 @@ const result = await ctx.assess
 ```
 
 Each source receives a relevance score (0.0 to 1.0):
+
 - **1.0**: Highly relevant — directly addresses the task
 - **0.7-0.9**: Very relevant — contains important information
 - **0.4-0.6**: Somewhat relevant — tangentially related
@@ -94,19 +137,20 @@ const context = await ctx.compose
 
 **Density presets** control compression aggressiveness and source inclusion:
 
-| Preset | Value | Effect |
-|--------|-------|--------|
-| `minimal` | 0.1 | Most compression, fewest sources |
-| `sparse` | 0.3 | Aggressive compression |
-| `balanced` | 0.5 | Moderate compression |
-| `detailed` | 0.7 | Light compression |
-| `thorough` | 0.9 | Minimal compression, most sources |
+| Preset     | Value | Effect                            |
+| ---------- | ----- | --------------------------------- |
+| `minimal`  | 0.1   | Most compression, fewest sources  |
+| `sparse`   | 0.3   | Aggressive compression            |
+| `balanced` | 0.5   | Moderate compression              |
+| `detailed` | 0.7   | Light compression                 |
+| `thorough` | 0.9   | Minimal compression, most sources |
 
 You can also pass a numeric value (0-1) directly.
 
 **How compression works:**
 
 Sources are compressed based on their relevance score. Higher relevance = less compression:
+
 - Relevance 1.0 → Full content preserved
 - Relevance 0.5 → Main points only
 - Relevance 0.1 → Single sentence summary
@@ -117,59 +161,31 @@ The output is hierarchical markdown organized by relevance tier:
 # Context for: Identify relevant contract clauses
 
 ## High Relevance Sources
+
 ### SLA and Uptime Guarantees (relevance: 0.95)
+
 [compressed content]
 
 ## Medium Relevance Sources
+
 ### Termination Rights (relevance: 0.72)
+
 [compressed content]
 
 ---
-*Composed from 5 sources. Threshold: 0.65*
+
+_Composed from 5 sources. Threshold: 0.65_
 ```
 
-## Installation
+## Demo
 
-```bash
-bun add contextrie
-```
+See the end-to-end legal contract review example in `demo/README.md`.
 
-## Usage
-
-```typescript
-import { Contextrie } from "contextrie";
-
-const ctx = new Contextrie({
-  ingester: { model },
-  assessor: { model },
-  compose: { model, defaultThreshold: 0.65 },
-});
-
-// 1. Ingest sources
-await ctx.ingest
-  .file("./docs/contract.md")
-  .file("./docs/clauses.csv")
-  .run();
-
-// 2. Assess relevance
-const assessment = await ctx.assess
-  .task("Find clauses about SLA violations")
-  .from(ctx.sources)
-  .run();
-
-// 3. Compose context
-const context = await ctx.compose
-  .task("Find clauses about SLA violations")
-  .from(assessment.rated)
-  .density("balanced")
-  .run();
-
-console.log(context);
-```
-
-## Future: Organic Memory
+## Roadmap (Planned)
 
 > **Note:** The following describes planned functionality not yet implemented.
+
+### Organic Memory
 
 Context windows are finite. Contextrie will manage this constraint through two complementary mechanisms:
 
@@ -219,15 +235,18 @@ This would also work for conversation history, with each message compacted and k
           "value": "API 401 errors, v2 endpoint, deadline Friday."
         }
       ],
-      "keyPoints": ["API integration issue", "401 auth errors", "v2 endpoint", "Friday deadline"]
+      "keyPoints": [
+        "API integration issue",
+        "401 auth errors",
+        "v2 endpoint",
+        "Friday deadline"
+      ]
     }
   ]
 }
 ```
 
-## Future: Assembly Loop
-
-> **Note:** The following describes planned functionality not yet implemented.
+### Assembly Loop
 
 Contextrie will tie source scoring together in a feedback loop:
 
@@ -245,8 +264,16 @@ This loop would run at each pipeline step, ensuring context stays fresh and rele
 {
   "task": "Write a tweet promoting Contextrie...",
   "sources": [
-    { "id": "twitter-hooks-2026", "title": "Twitter/X Hooks 2026", "relevance": 1.0 },
-    { "id": "copywriting-techniques", "title": "Copywriting Techniques", "relevance": 0.85 },
+    {
+      "id": "twitter-hooks-2026",
+      "title": "Twitter/X Hooks 2026",
+      "relevance": 1.0
+    },
+    {
+      "id": "copywriting-techniques",
+      "title": "Copywriting Techniques",
+      "relevance": 0.85
+    },
     { "id": "youtube-hooks", "title": "YouTube Hooks", "relevance": 0.1 }
   ]
 }
@@ -258,16 +285,22 @@ Then, within high-scoring sources, individual items would be scored:
 {
   "sourceId": "twitter-hooks-2026",
   "items": [
-    { "id": "hook-i-hate-it-when", "title": "I hate it when...", "relevance": 0.9 },
-    { "id": "hook-i-never-thought", "title": "I never thought...", "relevance": 0.75 },
+    {
+      "id": "hook-i-hate-it-when",
+      "title": "I hate it when...",
+      "relevance": 0.9
+    },
+    {
+      "id": "hook-i-never-thought",
+      "title": "I never thought...",
+      "relevance": 0.75
+    },
     { "id": "hook-top-10", "title": "Top 10 for YYYY", "relevance": 0.2 }
   ]
 }
 ```
 
-## Future: Additional Capabilities
-
-> **Note:** The following are planned but not yet implemented.
+### Additional Capabilities
 
 - **Per-item assessment**: Score individual items within ListSource/CollectionSource
 - **Additional file types**: JSON, XLSX, PDF, etc.
