@@ -185,7 +185,7 @@ See the end-to-end legal contract review example in `demo/README.md`.
 
 ## Links
 
-- Post: https://flintworks.dev/engineering/humans-managed-deep-contexts-agents-are-not-different
+- Post: https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different
 - Discord: https://discord.gg/ayX9hm4D
 
 ## Roadmap (Planned)
