@@ -45,6 +45,8 @@ console.log(context);
 
 Building AI agents that work across multiple steps is hard. Not because the models aren't capable, but because feeding them the _right_ information at the _right_ time is a constant struggle.
 
+The core idea comes from how humans and organizations handle deep context: compress, filter, and distill until a decision brief emerges. Without that, both orgs and agents drown in noise and experience context rot.
+
 Most context management today is either too simple (just append to chat history) or too rigid (static RAG pipelines). Real agentic workflows need something smarter: a system that understands what information exists, judges what's relevant _right now_, and assembles just enough context for each step.
 
 Contextrie is that system.
@@ -180,6 +182,11 @@ _Composed from 5 sources. Threshold: 0.65_
 ## Demo
 
 See the end-to-end legal contract review example in `demo/README.md`.
+
+## Links
+
+- Post: https://flintworks.dev/engineering/humans-managed-deep-contexts-agents-are-not-different
+- Discord: https://discord.gg/ayX9hm4D
 
 ## Roadmap (Planned)
 
