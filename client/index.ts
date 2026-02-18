@@ -2,17 +2,20 @@ export * from "./config";
 import { Ingester, type Source } from "../core/ingester";
 import { Assessor } from "../core/assessor";
 import { Composer } from "../core/compose";
+import { SessionManager } from "../core/session";
 import { DEFAULT_CONFIG, type ContextrieConfig } from "./config";
 
 export class Contextrie {
   private config: ContextrieConfig;
   public sources: Source[] = [];
+  public session: SessionManager;
 
   constructor(config?: Partial<ContextrieConfig>) {
     this.config = {
       ...DEFAULT_CONFIG,
       ...config,
     };
+    this.session = new SessionManager();
   }
 
   /**

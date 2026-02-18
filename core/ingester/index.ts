@@ -102,7 +102,7 @@ export class Ingester {
   private processQueuedSource = async (
     queued: QueuedSource,
   ): Promise<Source> => {
-    const fileContent = await Bun.file(queued.path).text();
+    const fileContent = await readFileText(queued.path);
 
     switch (queued.type) {
       case "md":
@@ -179,3 +179,12 @@ export class Ingester {
     };
   };
 }
+
+const readFileText = async (filePath: string): Promise<string> => {
+  if (typeof Bun !== "undefined" && Bun.file) {
+    return Bun.file(filePath).text();
+  }
+
+  const { readFile } = await import("node:fs/promises");
+  return readFile(filePath, "utf8");
+};
