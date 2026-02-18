@@ -7,11 +7,13 @@ This demo shows how Contextrie can help triage a legal/compliance-style customer
 ## Files
 
 **Relevant to the task:**
+
 - `article.md` — Contract summary highlighting key clauses (termination, SLA, liability, indemnity, confidentiality, force majeure)
 - `complaint.txt` — Customer complaint describing outages, refund requests, and data export issues
 - `clauses.csv` — Structured list of contract clauses with short summaries
 
 **Noise sources (low relevance):**
+
 - `apex_products.md` — Product information about Apex Cloud offerings
 - `nexus_earnings.md` — Nexus Financial earnings report
 
@@ -29,9 +31,39 @@ From repository root:
 bun demo/demo.ts
 ```
 
+## Azure OpenAI setup
+
+Use the helper script to create an Azure OpenAI resource and deployment:
+
+```bash
+bash demo/scripts/az-openai.sh
+```
+
+Then update `demo/keys.ts` with the resource name, API key, and deployment name printed by the script.
+
+`demo/keys.ts` is gitignored, so create it locally like:
+
+```ts
+export const resourceName = "<your-azure-resource-name>";
+export const apiKey = "<your-azure-api-key>";
+export const deploymentName = "<your-azure-deployment-name>";
+```
+
+## Bring your own model (OpenAI)
+
+You can swap the Azure client for OpenAI with the AI SDK. Replace the Azure client setup in `demo/demo.ts` with:
+
+```ts
+import { createOpenAI } from "@ai-sdk/openai";
+
+const openai = createOpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const model = openai("gpt-5.2-chat");
+```
+
 ## Output
 
 The demo outputs:
+
 - List of sources with their IDs and titles
 - Shallow assessment results showing relevance scores for each source
 - Composed context in hierarchical markdown, organized by relevance tier
