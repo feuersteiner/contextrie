@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": false,
+    "emitDeclarationOnly": false
+  },
+  "include": ["index.ts", "client/**/*.ts", "core/**/*.ts", "cli/**/*.ts"],
+  "exclude": ["demo", "dist", "node_modules"]
+}

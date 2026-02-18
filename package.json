@@ -1,19 +1,43 @@
 {
   "name": "contextrie",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "private": false,
-  "main": "index.ts",
-  "module": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "LICENSE"
+  ],
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./session": {
+      "types": "./dist/core/session/index.d.ts",
+      "import": "./dist/core/session/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "bin": {
-    "contextrie": "./cli/index.ts"
+    "contextrie": "./dist/cli/index.js"
   },
   "scripts": {
     "dev": "bun --hot ./index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "bun run build",
     "link": "bun link",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

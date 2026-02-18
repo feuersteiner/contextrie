@@ -1,1 +1,15 @@
-export { Session } from "./session";
+export {
+  Session,
+  SessionManager,
+  MemorySessionStore,
+  type SessionMessage,
+  type SessionRole,
+  type SessionSnapshot,
+  type SessionStore,
+  type SessionCreateOptions,
+  type SessionManagerOptions,
+  type SessionCompactOptions,
+  type SessionTaskOptions,
+  type SessionSourceOptions,
+  type SessionCompression,
+} from "./session";
