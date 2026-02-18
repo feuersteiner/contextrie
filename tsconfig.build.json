@@ -9,7 +9,8 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noEmit": false,
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "allowImportingTsExtensions": false
   },
   "include": ["index.ts", "client/**/*.ts", "core/**/*.ts", "cli/**/*.ts"],
   "exclude": ["demo", "dist", "node_modules"]
