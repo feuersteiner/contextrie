@@ -47,7 +47,7 @@ Three-stage pipeline: **Ingest → Assess → Compose**.
 - **Assess** sources for relevance to each task (shallow or deep)
 - **Compose** a task-specific context at the right density
 
-Supported file types: `.md`, `.txt`, `.csv`.
+Supported file types: `.md`, `.txt`, `.csv`, `.json`.
 
 ## Key capabilities
 
