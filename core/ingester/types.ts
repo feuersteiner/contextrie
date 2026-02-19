@@ -24,7 +24,7 @@ export interface CollectionSource<T> extends SourceBase {
 
 export type Source = DocumentSource | ListSource | CollectionSource<any>;
 
-export type SupportedSourceType = "md" | "txt" | "csv";
+export type SupportedSourceType = "md" | "txt" | "csv" | "json";
 
 export interface QueuedSource {
   path: string;
