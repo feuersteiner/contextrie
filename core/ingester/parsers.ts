@@ -11,7 +11,11 @@ export const parseCSV = (content: string): string[] => {
 
   return lines.slice(1).map((line) => {
     const values = parseLine(line);
-    return headers.map((h, i) => `${h}: ${values[i] ?? ""}`).join(", ");
+    return headers
+      .map((h, i) => `${h}: ${values[i] ?? ""}`)
+      .concat(values.slice(headers.length))
+      .filter(Boolean)
+      .join(", ");
   });
 };
 

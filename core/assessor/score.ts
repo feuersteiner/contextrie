@@ -87,9 +87,9 @@ Score each source. You MUST respond with valid JSON containing scores for ALL so
 
   // Map scores back to sources
   const scoreMap = new Map(
-    scoringResult.scores.map((s) => [
-      s.id,
-      { relevance: s.relevance, reasoning: s.reasoning },
+    scoringResult.scores.map(({ id, relevance, reasoning }) => [
+      id,
+      { relevance, reasoning },
     ]),
   );
 

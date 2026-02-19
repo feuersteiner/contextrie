@@ -71,8 +71,7 @@ export async function compressSource(
     return content;
   }
 
-  const clampedLevel = effectiveForgetfulness;
-  const instruction = forgetfulnessDescriptions[clampedLevel];
+  const instruction = forgetfulnessDescriptions[effectiveForgetfulness];
 
   const result = await generateText({
     model,

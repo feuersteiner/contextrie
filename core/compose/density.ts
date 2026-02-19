@@ -14,13 +14,13 @@ export type DensityValue = DensityPreset | number;
 /**
  * Preset mappings to internal float values (0-1)
  */
-const presetValues: Record<DensityPreset, number> = {
+const presetValues = {
   minimal: 0.1,
   sparse: 0.3,
   balanced: 0.5,
   detailed: 0.7,
   thorough: 0.9,
-};
+} as const satisfies Record<DensityPreset, number>;
 
 /**
  * Convert a DensityValue (preset or number) to a normalized float (0-1)
