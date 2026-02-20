@@ -21,6 +21,15 @@ bun run lint         # Run ESLint
 bun run lint:fix     # Auto-fix lint issues
 ```
 
+## Testing
+
+```bash
+bun test              # All tests
+bun test cli          # Just CLI tests
+```
+
+Test files live alongside source files using the `*.test.ts` convention.
+
 ## Project Structure
 
 ```
