@@ -3,6 +3,30 @@ export const parseText = (content: string): string =>
 
 export const parseMarkdown = (content: string): string => parseText(content);
 
+export const parseJSON = (content: string): Record<string, any>[] => {
+  const parsed = JSON.parse(content);
+  
+  // If it's already an array of objects, return it
+  if (Array.isArray(parsed)) {
+    // Ensure all elements are objects (not primitives)
+    return parsed.map((item, index) => {
+      if (typeof item === "object" && item !== null && !Array.isArray(item)) {
+        return item;
+      }
+      // Wrap primitives in an object
+      return { value: item, _index: index };
+    });
+  }
+  
+  // If it's a single object, wrap it in an array
+  if (typeof parsed === "object" && parsed !== null) {
+    return [parsed];
+  }
+  
+  // If it's a primitive, wrap it
+  return [{ value: parsed }];
+};
+
 export const parseCSV = (content: string): string[] => {
   const lines = content.trim().split("\n");
   if (lines.length < 2) return [];

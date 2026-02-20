@@ -4,13 +4,14 @@ import type {
   Source,
   DocumentSource,
   ListSource,
+  CollectionSource,
   QueuedSource,
   SupportedSourceType,
 } from "./types";
-import { parseMarkdown, parseText, parseCSV } from "./parsers";
+import { parseMarkdown, parseText, parseCSV, parseJSON } from "./parsers";
 import { generateMetadata } from "./metadata";
 
-export type { Source, DocumentSource, ListSource } from "./types";
+export type { Source, DocumentSource, ListSource, CollectionSource } from "./types";
 
 export class Ingester {
   private config: IngesterConfig;
@@ -80,12 +81,13 @@ export class Ingester {
       md: "md",
       txt: "txt",
       csv: "csv",
+      json: "json",
     };
 
     const sourceType = mapping[extension];
     if (!sourceType) {
       throw new Error(
-        `Unsupported file type: .${extension}. Supported types: .md, .txt, .csv`,
+        `Unsupported file type: .${extension}. Supported types: .md, .txt, .csv, .json`,
       );
     }
 
@@ -111,6 +113,8 @@ export class Ingester {
         return this.processText(queued.path, fileContent);
       case "csv":
         return this.processCSV(queued.path, fileContent);
+      case "json":
+        return this.processJSON(queued.path, fileContent);
       default:
         throw new Error(`Unknown file type: ${queued.type}`);
     }
@@ -176,6 +180,28 @@ export class Ingester {
       description: metadata.description,
       keypoints: metadata.keypoints,
       content: rows,
+    };
+  };
+
+  private processJSON = async (
+    path: string,
+    content: string,
+  ): Promise<CollectionSource<any>> => {
+    const parsed = parseJSON(content);
+    const stringified = JSON.stringify(parsed, null, 2);
+    const metadata = await generateMetadata(
+      this.config.model,
+      stringified,
+      path,
+    );
+
+    return {
+      type: "collection",
+      id: this.generateId(),
+      title: metadata.title,
+      description: metadata.description,
+      keypoints: metadata.keypoints,
+      content: parsed,
     };
   };
 }

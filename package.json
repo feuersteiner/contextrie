@@ -40,6 +40,7 @@
     "build": "tsc -p tsconfig.build.json",
     "prepublishOnly": "bun run build",
     "link": "bun link",
+    "test": "bun test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
