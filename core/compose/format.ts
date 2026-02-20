@@ -43,7 +43,8 @@ const groupByTier = (sources: CompressedSource[]): TieredSources => {
  * Format a single source as markdown
  */
 const formatSource = (source: CompressedSource): string => {
-  return `### ${source.title} (relevance: ${source.relevance.toFixed(2)})
+  const relevanceDisplay = (source.relevance * 100).toFixed(0);
+  return `### ${source.title} (relevance: ${relevanceDisplay}%)
 
 ${source.content}`;
 };
