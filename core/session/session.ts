@@ -372,7 +372,7 @@ const generateSessionId = (): string =>
   })}-${Math.random().toString(36).substring(2, 8)}`;
 
 const generateMessageId = (): string =>
-  `${Math.random().toString(36).substring(2, 10)}`;
+  `msg-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 8)}`;
 
 const clamp01 = (value: number): number => Math.max(0, Math.min(1, value));
 

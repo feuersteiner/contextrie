@@ -22,7 +22,7 @@ export interface CollectionSource<T> extends SourceBase {
   content: Record<string, T>[];
 }
 
-export type Source = DocumentSource | ListSource | CollectionSource<any>;
+export type Source = DocumentSource | ListSource | CollectionSource<unknown>;
 
 export type SupportedSourceType = "md" | "txt" | "csv";
 

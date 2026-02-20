@@ -2,9 +2,12 @@ import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import type { LanguageModel } from "ai";
 import type { DensityValue } from "../core/compose/density";
 
+const OLLAMA_BASE_URL = "http://localhost:11434/v1";
+const DEFAULT_MODEL = "llama3.2";
+
 const ollama = createOpenAICompatible({
   name: "ollama",
-  baseURL: "http://localhost:11434/v1",
+  baseURL: OLLAMA_BASE_URL,
 });
 
 export interface IngesterConfig {
@@ -31,13 +34,13 @@ export interface ContextrieConfig {
 export const DEFAULT_CONFIG: ContextrieConfig = {
   outputDir: ".contextrie",
   ingester: {
-    model: ollama.languageModel("llama3.2"),
+    model: ollama.languageModel(DEFAULT_MODEL),
   },
   assessor: {
-    model: ollama.languageModel("llama3.2"),
+    model: ollama.languageModel(DEFAULT_MODEL),
   },
   compose: {
-    model: ollama.languageModel("llama3.2"),
+    model: ollama.languageModel(DEFAULT_MODEL),
     defaultThreshold: 0.65,
     defaultDensity: "minimal",
   },
