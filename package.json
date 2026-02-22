@@ -46,9 +46,11 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/bun": "latest",
     "eslint": "^9.39.2",
-    "prettier": "^3.8.0"
+    "prettier": "^3.8.0",
+    "typescript-eslint": "^8.56.0"
   },
   "peerDependencies": {
     "typescript": "^5"
