@@ -60,6 +60,15 @@ const openai = createOpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const model = openai("gpt-5.2-chat");
 ```
 
+## Environment Setup
+
+If you're using the OpenAI option, copy the example environment file and add your API key:
+```bash
+cp .env.example .env
+```
+
+Then open `.env` and replace `your_openai_api_key_here` with your actual key from https://platform.openai.com/api-keys
+
 ## Output
 
 The demo outputs:
