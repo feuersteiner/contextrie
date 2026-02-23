@@ -1,8 +1,17 @@
 ![Contextrie header](assets/github-header.png)
 
+[![npm version](https://badge.fury.io/js/contextrie.svg)](https://badge.fury.io/js/contextrie)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml)
+
 # Contextrie
 
 Context-aware memory for agentic workflows. Contextrie curates what each agent sees so tasks stay sharp from step one to step one thousand.
+
+> [!TIP]
+> **Get started quickly:** `bun add contextrie` — see [Quickstart](#quickstart) below
+>
+> [📖 Blog Post](https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different) · [💬 Discord](https://discord.gg/ayX9hm4D)
 
 ## Quickstart
 
@@ -60,11 +69,6 @@ Supported file types: `.md`, `.txt`, `.csv`.
 ## Demo
 
 See the end-to-end legal contract review example in `demo/README.md`.
-
-## Links
-
-- Post: https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different
-- Discord: https://discord.gg/ayX9hm4D
 
 ## Roadmap (planned)
 
