@@ -1,17 +1,19 @@
-![Contextrie header](assets/github-header.png)
-
-[![npm version](https://badge.fury.io/js/contextrie.svg)](https://badge.fury.io/js/contextrie)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI](https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml/badge.svg)](https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml)
-
 # Contextrie
 
-Context-aware memory for agentic workflows. Contextrie curates what each agent sees so tasks stay sharp from step one to step one thousand.
+<p align="center">
+  <a href="https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different"><img src="https://img.shields.io/badge/Blog_Post-Read-blue" alt="Blog Post"></a>
+  <a href="https://discord.gg/ayX9hm4D"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2" alt="Discord"></a>
+</p>
 
-> [!TIP]
-> **Get started quickly:** `bun add contextrie` — see [Quickstart](#quickstart) below
->
-> [📖 Blog Post](https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different) · [💬 Discord](https://discord.gg/ayX9hm4D)
+<p align="center">
+  <a href="https://badge.fury.io/js/contextrie"><img src="https://badge.fury.io/js/contextrie.svg" alt="npm version"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml"><img src="https://github.com/feuersteiner/contextrie/actions/workflows/pr-checks.yml/badge.svg" alt="CI"></a>
+</p>
+
+![Contextrie header](assets/github-header.png)
+
+Context-aware memory for agentic workflows. Contextrie curates what each agent sees so tasks stay sharp from step one to step one thousand.
 
 ## Quickstart
 
