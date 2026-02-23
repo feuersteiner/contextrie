@@ -1,8 +1,8 @@
 # Contextrie
 
 <p align="center">
-  <a href="https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different"><img src="https://img.shields.io/badge/Blog_Post-Read-blue" alt="Blog Post"></a>
-  <a href="https://discord.gg/ayX9hm4D"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2" alt="Discord"></a>
+  <a href="https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different"><img src="https://img.shields.io/badge/Manifesto-Read-blue" alt="Manifesto"></a>
+  <a href="https://discord.gg/ayX9hm4D"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 <p align="center">
