@@ -63,6 +63,7 @@ const model = openai("gpt-5.2-chat");
 ## Environment Setup
 
 If you're using the OpenAI option, copy the example environment file and add your API key:
+
 ```bash
 cp .env.example .env
 ```
