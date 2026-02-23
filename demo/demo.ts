@@ -51,13 +51,14 @@ async function runDemo() {
     );
   }
 
-  console.log("\n--- Composing context (sparse density) ---");
+  console.log("\n--- Composed context (minimal density) ---");
   const context = await ctx.compose
     .task(task)
     .from(shallow.rated)
     .density("minimal") // 'minimal'|'sparse'|'balanced'|'detailed'|'thorough' or 0-1
     .run();
 
+  console.log("\n=== Final Context ===");
   console.log(context);
 }
 
