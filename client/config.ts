@@ -20,7 +20,9 @@ export interface AssessorConfig {
 
 export interface ComposeConfig {
   model: LanguageModel;
+  /** Minimum relevance score (0-1) for including sources in composed context */
   defaultThreshold: number;
+  /** Density preset controlling how much detail to include: minimal, sparse, balanced, detailed, thorough */
   defaultDensity?: DensityValue;
 }
 
