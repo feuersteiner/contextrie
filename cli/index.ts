@@ -45,7 +45,7 @@ const printHelp = (): void => {
 Usage:
   contextrie ingest <file...>
   contextrie --help
-  contextrie --version
+  contextrie --version, -v
 `);
 };
 
