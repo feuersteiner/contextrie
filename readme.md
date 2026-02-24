@@ -17,24 +17,28 @@ AI agents lose accuracy and reasoning ability as they accumulate irrelevant cont
 ## Repo Layout
 
 ```
-core/ TypeScript library (npm)
-cli/ Bun CLI wrapper
-docs/ SvelteKit documentation site
-python/ Python package (stub)
-examples/ Minimal examples
+.
+├─ assets/        Visuals and branding
+├─ cli/           Bun CLI wrapper
+├─ core/          TypeScript library (npm)
+├─ docs/          SvelteKit documentation site
+├─ examples/      Minimal examples
+├─ python/        Python package (stub)
+├─ the-plan.md    Roadmap and planning notes
+└─ README.md      Project overview
 ```
 
 ## Concepts
 
-- Parser: converts raw input into RawSource
-- Ingester: validates RawSource and indexes it via the Indexer
-- Indexer: generates metadata during ingest.run()
+- Parser: converts raw input into `RawSource`
+- Ingester: validates `RawSource` and indexes it via the Indexer
+- Indexer: generates metadata during `ingest.run()`
 
 ## API Shape
 
-- ctx.ingest.from(input).run()
-- ctx.assess.task(...).from(...).run()
-- ctx.compose.task(...).from(...).run()
+- `ctx.ingest.from(input).run()`
+- `ctx.assess.task(...).from(...).run()`
+- `ctx.compose.task(...).from(...).run()`
 
 ## Getting Started
 
