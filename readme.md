@@ -13,3 +13,33 @@
 </p>
 
 AI agents lose accuracy and reasoning ability as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.
+
+## Repo Layout
+
+```
+core/ TypeScript library (npm)
+cli/ Bun CLI wrapper
+docs/ SvelteKit documentation site
+python/ Python package (stub)
+examples/ Minimal examples
+```
+
+## Concepts
+
+- Parser: converts raw input into RawSource
+- Ingester: validates RawSource and indexes it via the Indexer
+- Indexer: generates metadata during ingest.run()
+
+## API Shape
+
+- ctx.ingest.from(input).run()
+- ctx.assess.task(...).from(...).run()
+- ctx.compose.task(...).from(...).run()
+
+## Getting Started
+
+Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
+
+## Status
+
+Early development; expect breaking changes.
