@@ -17,10 +17,11 @@ export abstract class SourceBase {
     public metadata: GeneratedMetadata,
   ) {}
 
-  abstract kind: SourceKind;
+  abstract readonly kind: SourceKind;
   abstract get isIterable(): boolean;
   abstract getContent():
     | string
+    | string[]
     | AsyncIterable<string>
-    | Promise<string | AsyncIterable<string>>;
+    | Promise<string | string[] | AsyncIterable<string>>;
 }
