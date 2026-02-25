@@ -24,7 +24,6 @@ AI agents lose accuracy and reasoning ability as they accumulate irrelevant cont
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
 ├─ python/        Python package (stub)
-├─ the-plan.md    Roadmap and planning notes
 └─ README.md      Project overview
 ```
 
