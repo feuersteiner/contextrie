@@ -1,8 +1,13 @@
 {
-  "name": "core",
+  "name": "contextrie",
+  "version": "0.2.0",
+  "description": "AI agents lose accuracy and reasoning ability as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.",
+  "license": "MIT",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "exports": {
+    ".": "./index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
