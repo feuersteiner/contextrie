@@ -9,10 +9,7 @@ export type RawPayload =
   | string
   | string[]
   | (() => Promise<string> | string)
-  | (() =>
-      | Promise<string[] | AsyncIterable<string>>
-      | string[]
-      | AsyncIterable<string>);
+  | (() => Promise<AsyncIterable<string>> | AsyncIterable<string>);
 
 export interface RawSource {
   kind: SourceKind;

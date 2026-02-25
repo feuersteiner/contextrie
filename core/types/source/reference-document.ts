@@ -1,19 +1,20 @@
 import { SourceBase, SourceKind } from "./base";
 
 export class ReferenceDocumentSource extends SourceBase {
-  kind = SourceKind.ReferenceDocument;
+  readonly kind = SourceKind.ReferenceDocument;
 
   constructor(
     id: string,
     metadata: SourceBase["metadata"],
-    private resolve: () => Promise<string> | string,
+    getContent: () => Promise<string> | string,
   ) {
     super(id, metadata);
+    this.getContent = getContent;
   }
 
   get isIterable(): boolean {
     return false;
   }
 
-  getContent = (): string | Promise<string> => this.resolve();
+  getContent: () => string | Promise<string>;
 }
