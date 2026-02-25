@@ -10,6 +10,7 @@
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "bun test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
