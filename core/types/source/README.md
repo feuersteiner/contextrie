@@ -13,6 +13,8 @@ Source primitives and base abstractions.
 - `DocumentSource` represents a single block of text
 - `ListSource` represents multiple items and exposes them as an iterable
 
+Each source takes a `getContent` function in its constructor so adapters decide how content is produced (direct value or resolver).
+
 ## Consumption
 
 List sources are designed for streaming. Use `for await...of` to read items without loading all content into memory.
