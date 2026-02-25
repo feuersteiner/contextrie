@@ -13,7 +13,7 @@ const asAsyncIterable = async function* (
 };
 
 export class ReferenceListSource extends SourceBase {
-  kind = SourceKind.ReferenceList;
+  readonly kind = SourceKind.ReferenceList;
 
   constructor(
     id: string,
