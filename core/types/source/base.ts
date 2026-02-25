@@ -35,7 +35,7 @@ export abstract class SourceBase {
   /** True when content should be consumed as a list/stream. */
   abstract get isIterable(): boolean;
   /** Returns content or a lazy/async provider. */
-  abstract getContent():
+  abstract getContent: () =>
     | string
     | string[]
     | AsyncIterable<string>

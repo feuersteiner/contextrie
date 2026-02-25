@@ -32,9 +32,11 @@ lets ingestion stay format-agnostic.
 Example (DB-backed list):
 
 ```ts
-const source = new ReferenceListSource("users", metadata, async () => {
+const source = new ReferenceListSource("users", metadata, async function* () {
   const rows = await db.query("select email from users limit 100");
-  return rows.map((row) => row.email);
+  for (const row of rows) {
+    yield row.email;
+  }
 });
 ```
 

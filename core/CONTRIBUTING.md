@@ -9,8 +9,7 @@ bun install
 ## Development
 
 ```bash
-bun run dev
-bun run lint
+bun run typecheck
 bun run format
 ```
 
