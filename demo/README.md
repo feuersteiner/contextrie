@@ -82,3 +82,7 @@ The demo outputs:
 
 - The demo uses Azure OpenAI. Configure your endpoint in `demo.ts`.
 - This demo is illustrative only and is not legal advice.
+
+## Deprecation notice
+
+The demo code will be updated alongside the refactor in issue #39. Expect API changes and updated package boundaries.
