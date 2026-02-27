@@ -54,3 +54,7 @@ Types are colocated with their modules rather than centralized.
 ## Status
 
 Contextrie is in early development. The API is still taking shape, so expect breaking changes.
+
+## Deprecation notice
+
+The current API surface is being refactored as part of issue #39. Expect breaking changes and updated package boundaries.

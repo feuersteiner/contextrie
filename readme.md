@@ -80,6 +80,10 @@ Planned features include organic memory (forgetfulness/remembrance), feedback-lo
 
 Contextrie is in early development. The core pipeline (Ingest → Assess → Compose) is functional, but the API is still taking shape.
 
+## Deprecation notice
+
+The current API surface (client, CLI, demo) is scheduled to change as part of the refactor in issue #39. Expect breaking changes and new package boundaries.
+
 ## License
 
 MIT

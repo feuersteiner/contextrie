@@ -42,6 +42,8 @@ const run = async (): Promise<void> => {
 const printHelp = (): void => {
   console.log(`Contextrie CLI
 
+Deprecation notice: this CLI interface will change during the issue #39 refactor.
+
 Usage:
   contextrie ingest <file...>
   contextrie --help

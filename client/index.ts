@@ -21,6 +21,8 @@ export class Contextrie {
   /**
    * Returns a fresh Ingester builder for adding files.
    * Ingested sources are automatically appended to this.sources.
+   *
+   * Deprecation notice: this client surface will change during the issue #39 refactor.
    */
   get ingest(): Ingester {
     return new Ingester(this.config.ingester, (sources) => {
@@ -39,6 +41,8 @@ export class Contextrie {
    *   .deep()  // optional: include full content
    *   .run();
    * ```
+   *
+   * Deprecation notice: this client surface will change during the issue #39 refactor.
    */
   get assess(): Assessor {
     return new Assessor(this.config.assessor);
@@ -55,6 +59,8 @@ export class Contextrie {
    *   .threshold(0.5)  // optional
    *   .run();
    * ```
+   *
+   * Deprecation notice: this client surface will change during the issue #39 refactor.
    */
   get compose(): Composer {
     return new Composer(this.config.compose);
