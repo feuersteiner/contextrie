@@ -1,6 +1,6 @@
 # core
 
-TypeScript core library for Contextrie. Defines the ingestion contracts and source primitives used across the system.
+TypeScript core library for Contextrie. Defines indexing contracts and source primitives used across the system.
 
 ## Purpose
 
@@ -8,7 +8,8 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 
 ## Structure
 
-- types/ Contracts for sources, raw inputs, and ingest interfaces
+- types/ Types for sources, raw inputs, and indexing stages
+- agents/ Agent contracts, including indexing
 
 ## Boundaries
 
