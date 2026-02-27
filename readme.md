@@ -29,9 +29,15 @@ AI agents lose accuracy and reasoning ability as they accumulate irrelevant cont
 
 ## Concepts
 
-- Parser: converts raw input into `RawSource`
-- Ingester: validates `RawSource` and indexes it via the Indexer
-- Indexer: generates metadata during `ingest.run()`
+- Parser: converts raw input into `DraftSource`
+- IndexingAgent: turns `DraftSource` into `IndexedSource`
+
+State flow:
+
+```mermaid
+flowchart LR
+  RawSource --> DraftSource --> IndexedSource
+```
 
 ## API Shape
 
