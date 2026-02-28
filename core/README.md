@@ -9,11 +9,13 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 ## Structure
 
 - types/ Contracts for sources, raw inputs, and ingest interfaces
+- ingest/ Pure orchestration logic (map-reduce engine)
 
 ## Boundaries
 
 - No IO in core
 - No parsing or file formats in core
+- Pure orchestration logic (no external dependencies) is acceptable in core
 - Keep types small and composable
 
 ## Development
