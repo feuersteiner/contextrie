@@ -15,6 +15,13 @@ Source primitives and base abstractions.
 
 Each source takes a `getContent` function in its constructor so adapters decide how content is produced (direct value or resolver).
 
+## Complex Documents
+
+`ComplexDocumentSource` represents a document split into sections, each with its
+own heading, content, and metadata arranged in a tree via the `DocumentSection`
+interface. This lets the assessor and composer score and select individual
+sections independently while still providing access to the full document text.
+
 ## Consumption
 
 List sources are designed for streaming. Use `for await...of` to read items without loading all content into memory.
@@ -47,4 +54,5 @@ const source = new ReferenceListSource("users", metadata, async function* () {
 - list.ts `ListSource` (iterable content)
 - reference-document.ts Document resolver source
 - reference-list.ts List resolver source
+- complex-document.ts `DocumentSection`, `ComplexDocumentSource` (sectioned document)
 - index.ts Barrel exports

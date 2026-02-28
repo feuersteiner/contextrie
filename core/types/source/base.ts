@@ -15,6 +15,7 @@ export enum SourceKind {
   List = "list",
   ReferenceDocument = "reference-document",
   ReferenceList = "reference-list",
+  ComplexDocument = "complex-document",
 }
 
 /**
