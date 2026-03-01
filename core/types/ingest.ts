@@ -34,3 +34,20 @@ export interface FlatMapOptions {
   /** Max parallel map calls. Default: Infinity. */
   concurrency?: number;
 }
+
+/** Rolls up children/chunk metadata into a parent. */
+export type ReduceFn = (
+  heading: string,
+  ownContent: string,
+  childMeta: GeneratedMetadata[],
+) => GeneratedMetadata | Promise<GeneratedMetadata>;
+
+/** Configuration for map-reduce ingestion. */
+export interface MapReduceOptions {
+  map: MapFn;
+  reduce: ReduceFn;
+  /** Max chars before a leaf section gets chunked. Default: Infinity (no chunking). */
+  maxSectionSize?: number;
+  /** Max parallel map/reduce calls. Default: Infinity. */
+  concurrency?: number;
+}
