@@ -1,5 +1,5 @@
-import type { GeneratedMetadata } from "../types/source/base";
-import type { DocumentSection } from "../types/source/complex-document";
+import type { Metadata } from "../types/source";
+import type { DocumentSection } from "../sources/complex-document";
 import type { RawSection, MapReduceOptions } from "../types/ingest";
 
 /**
@@ -70,7 +70,7 @@ export async function mapReduceSections(
   async function guardedMap(
     heading: string,
     content: string,
-  ): Promise<GeneratedMetadata> {
+  ): Promise<Metadata> {
     await acquire();
     try {
       return await map(heading, content);
@@ -82,8 +82,8 @@ export async function mapReduceSections(
   async function guardedReduce(
     heading: string,
     ownContent: string,
-    childMeta: GeneratedMetadata[],
-  ): Promise<GeneratedMetadata> {
+    childMeta: Metadata[],
+  ): Promise<Metadata> {
     await acquire();
     try {
       return await reduce(heading, ownContent, childMeta);
@@ -98,7 +98,7 @@ export async function mapReduceSections(
         // Recurse children first (bottom-up).
         const children = await walk(section.children);
 
-        let metadata: GeneratedMetadata;
+        let metadata: Metadata;
 
         if (children.length > 0) {
           // Parent: reduce over child metadata

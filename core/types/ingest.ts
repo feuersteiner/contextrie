@@ -25,8 +25,8 @@ export interface FlatMapOptions {
 export type ReduceFn = (
   heading: string,
   ownContent: string,
-  childMeta: GeneratedMetadata[],
-) => GeneratedMetadata | Promise<GeneratedMetadata>;
+  childMeta: Metadata[],
+) => Metadata | Promise<Metadata>;
 
 /** Configuration for map-reduce ingestion. */
 export interface MapReduceOptions {

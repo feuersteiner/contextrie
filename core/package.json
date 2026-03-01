@@ -16,6 +16,7 @@
   "files": [
     "index.ts",
     "agents/**/*.ts",
+    "ingest/**/*.ts",
     "sources/**/*.ts",
     "types/**/*.ts",
     "README.md"
@@ -54,6 +55,7 @@
   },
   "dependencies": {
     "ai": "^6.0.116",
+    "mdast-util-from-markdown": "^2.0.3",
     "zod": "^4.1.11"
   }
 }
