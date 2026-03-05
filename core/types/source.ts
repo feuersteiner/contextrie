@@ -56,6 +56,7 @@ export type RawSource =
  * Produced after ingestion, before indexing.
  */
 export interface DraftSource {
+  id: string;
   /** Source kind discriminator. */
   kind: SourceKind;
   /** Raw content payload or provider. */
