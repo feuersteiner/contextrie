@@ -21,5 +21,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "ai": "^6.0.116"
   }
 }
