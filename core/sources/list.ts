@@ -1,0 +1,28 @@
+import { IndexedSourceBase, SourceKind, type Metadata } from "../types/source";
+
+/**
+ * Source containing a list of items.
+ */
+export class ListSource extends IndexedSourceBase {
+  readonly kind = SourceKind.List;
+
+  /**
+   * @param id Unique source ID
+   * @param metadata Generated metadata for the source
+   * @param content List items
+   */
+  constructor(
+    id: string,
+    metadata: Metadata,
+    private readonly content: string[],
+  ) {
+    super(id, metadata);
+  }
+
+  get isIterable(): true {
+    return true;
+  }
+
+  /** Returns list items. */
+  getContent: () => string[] = () => this.content;
+}
