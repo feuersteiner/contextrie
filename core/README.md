@@ -8,7 +8,8 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 
 ## Structure
 
-- types/ Types for sources, raw inputs, and indexing stages
+- types/ Core contracts (raw, draft, indexed)
+- sources/ Indexed source implementations
 - agents/ Agent contracts, including indexing
 
 ## Boundaries
