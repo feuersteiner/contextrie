@@ -1,10 +1,10 @@
-import { IndexedSourceBase, SourceKind, type Metadata } from "../types/source";
+import { IndexedSourceBase, type Metadata } from "../types/source";
 
 /**
  * Source containing a single text document.
  */
 export class DocumentSource extends IndexedSourceBase {
-  readonly kind = SourceKind.Document;
+  readonly kind = "document";
 
   /**
    * @param id Unique source ID
@@ -13,7 +13,7 @@ export class DocumentSource extends IndexedSourceBase {
    */
   constructor(
     id: string,
-    metadata: Metadata,
+    metadata: Metadata | undefined,
     private readonly content: string,
   ) {
     super(id, metadata);
@@ -25,4 +25,8 @@ export class DocumentSource extends IndexedSourceBase {
 
   /** Returns the document text. */
   getContent: () => string = () => this.content;
+
+  buildIndexInput(): string {
+    return this.content;
+  }
 }

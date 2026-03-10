@@ -1,10 +1,10 @@
-import { IndexedSourceBase, SourceKind, type Metadata } from "../types/source";
+import { IndexedSourceBase, type Metadata } from "../types/source";
 
 /**
  * Source containing a list of items.
  */
 export class ListSource extends IndexedSourceBase {
-  readonly kind = SourceKind.List;
+  readonly kind = "list";
 
   /**
    * @param id Unique source ID
@@ -13,7 +13,7 @@ export class ListSource extends IndexedSourceBase {
    */
   constructor(
     id: string,
-    metadata: Metadata,
+    metadata: Metadata | undefined,
     private readonly content: string[],
   ) {
     super(id, metadata);
@@ -25,4 +25,8 @@ export class ListSource extends IndexedSourceBase {
 
   /** Returns list items. */
   getContent: () => string[] = () => this.content;
+
+  buildIndexInput(): string {
+    return this.content.join("\n");
+  }
 }

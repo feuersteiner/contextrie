@@ -1,10 +1,10 @@
-import { IndexedSourceBase, SourceKind, type Metadata } from "../types/source";
+import { IndexedSourceBase, type Metadata } from "../types/source";
 
 /**
  * Source that resolves a document on demand.
  */
 export class ReferenceDocumentSource extends IndexedSourceBase {
-  readonly kind = SourceKind.ReferenceDocument;
+  readonly kind = "reference-document";
 
   /**
    * @param id Unique source ID
@@ -13,7 +13,7 @@ export class ReferenceDocumentSource extends IndexedSourceBase {
    */
   constructor(
     id: string,
-    metadata: Metadata,
+    metadata: Metadata | undefined,
     /** Returns the resolved document text. */
     public getContent: () => Promise<string> | string,
   ) {
@@ -22,5 +22,9 @@ export class ReferenceDocumentSource extends IndexedSourceBase {
 
   get isIterable(): false {
     return false;
+  }
+
+  async buildIndexInput(): Promise<string> {
+    return await this.getContent();
   }
 }
