@@ -4,16 +4,18 @@ Indexed sources implementations built on `IndexedSourceBase`.
 
 ## Overview
 
-- `DocumentSource`: indexed, in-memory single document (string content)
-- `ListSource`: indexed, in-memory list of items (string[])
-- `ReferenceDocumentSource`: indexed document resolved on demand
-- `ReferenceListSource`: indexed list resolved on demand (async iterable)
-- All expose metadata + `getContent` for retrieval
+- `DocumentSource`: in-memory single document (`string`)
+- `ListSource`: in-memory list of items (`string[]`)
+- `ReferenceDocumentSource`: document resolved on demand
+- `ReferenceListSource`: async list resolved on demand (`AsyncIterable<string>`)
+- All support draft sources with optional metadata
+- All implement `buildIndexInput()` for the indexing agent
 
 ## Consumption
 
 - Documents are single-string reads
-- Lists can be streamed with `for await...of`
+- `ListSource#getContent()` returns `string[]`
+- `ReferenceListSource#getContent()` can be consumed with `for await...of`
 
 ## Files
 
