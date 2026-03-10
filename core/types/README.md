@@ -17,3 +17,10 @@ flowchart LR
 - RawSource: strings, arrays, or lazy/async providers
 - DraftSource: normalized envelope (kind + payload + origin)
 - IndexedSourceBase: metadata + content accessor for retrieval
+
+## Indexed Sources (`source.ts`)
+
+- `IndexedSourceBase` is draft when `metadata` is missing
+- `getContent()` returns the retrieval payload or lazy provider
+- `buildIndexInput()` returns the string fed into the indexing agent
+- Concrete source classes define their own string `kind`
