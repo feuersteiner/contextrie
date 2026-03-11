@@ -29,4 +29,8 @@ export class ListSource extends IndexedSourceBase {
   buildIndexInput(): string {
     return this.content.join("\n");
   }
+
+  buildDeepJudgeInput(): string {
+    return this.content.slice(0, 10).join("\n");
+  }
 }

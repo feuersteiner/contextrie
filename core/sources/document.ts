@@ -29,4 +29,8 @@ export class DocumentSource extends IndexedSourceBase {
   buildIndexInput(): string {
     return this.content;
   }
+
+  buildDeepJudgeInput(): string {
+    return this.content;
+  }
 }

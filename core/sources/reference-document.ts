@@ -27,4 +27,8 @@ export class ReferenceDocumentSource extends IndexedSourceBase {
   async buildIndexInput(): Promise<string> {
     return await this.getContent();
   }
+
+  async buildDeepJudgeInput(): Promise<string> {
+    return await this.getContent();
+  }
 }

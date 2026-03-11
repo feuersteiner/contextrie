@@ -33,4 +33,14 @@ export class ReferenceListSource extends IndexedSourceBase {
     for await (const item of content) items.push(item);
     return items.join("\n");
   }
+
+  async buildDeepJudgeInput(): Promise<string> {
+    const content = await this.getContent();
+    const items: string[] = [];
+    for await (const item of content) {
+      items.push(item);
+      if (items.length >= 10) break;
+    }
+    return items.join("\n");
+  }
 }
