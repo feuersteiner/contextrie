@@ -1,26 +1,39 @@
 # sources
 
-Indexed sources implementations built on `IndexedSourceBase`.
+Concrete `IndexedSourceBase` implementations.
 
-## Overview
+## Available Sources
 
-- `DocumentSource`: in-memory single document (`string`)
-- `ListSource`: in-memory list of items (`string[]`)
-- `ReferenceDocumentSource`: document resolved on demand
-- `ReferenceListSource`: async list resolved on demand (`AsyncIterable<string>`)
-- All support draft sources with optional metadata
-- All implement `buildIndexInput()` for the indexing agent
+- `DocumentSource` with `kind: "document"` for in-memory text
+- `ListSource` with `kind: "list"` for in-memory string arrays
+- `ReferenceDocumentSource` with `kind: "reference-document"` for lazily resolved text
+- `ReferenceListSource` with `kind: "reference-list"` for lazily resolved async lists
 
-## Consumption
+## Common Behavior
 
-- Documents are single-string reads
+- All sources extend `IndexedSourceBase`
+- All sources can exist in draft form when `metadata` is missing
+- All sources implement `buildIndexInput()` for metadata generation
+- All sources implement `buildDeepJudgeInput()` for deep relevance checks
+
+## Content Access
+
+- `DocumentSource#getContent()` returns `string`
 - `ListSource#getContent()` returns `string[]`
-- `ReferenceListSource#getContent()` can be consumed with `for await...of`
+- `ReferenceDocumentSource#getContent()` returns `string | Promise<string>`
+- `ReferenceListSource#getContent()` returns `AsyncIterable<string> | Promise<AsyncIterable<string>>`
+
+## Indexing And Deep Judge Input
+
+- `DocumentSource` uses the full document for both operations
+- `ListSource` joins items with newlines for indexing and only uses the first 10 items for deep judging
+- `ReferenceDocumentSource` resolves the full document for both operations
+- `ReferenceListSource` resolves and joins the full list for indexing and only consumes the first 10 items for deep judging
 
 ## Files
 
-- document.ts `DocumentSource`
-- list.ts `ListSource`
-- reference-document.ts `ReferenceDocumentSource`
-- reference-list.ts `ReferenceListSource`
-- index.ts Barrel exports
+- `document.ts`
+- `list.ts`
+- `reference-document.ts`
+- `reference-list.ts`
+- `index.ts`
