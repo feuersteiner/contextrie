@@ -44,4 +44,6 @@ export abstract class IndexedSourceBase {
 
   /** Build the input string used for indexing. */
   abstract buildIndexInput(): string | Promise<string>;
+  /** Build the input string used for deep judging. */
+  abstract buildDeepJudgeInput(): string | Promise<string>;
 }
