@@ -1,26 +1,36 @@
 # types
 
-Core contracts for Contextrie.
+Core contracts shared by sources and agents.
 
 ## Layout
 
-- source.ts Source kinds and ingestion/indexing contracts
-- index.ts Barrel exports
+- `source.ts` Metadata and indexed source base contract
+- `index.ts` Barrel exports
 
-## Source Pipeline (source.ts)
+## Exports
 
-```mermaid
-flowchart LR
-  RawSource --> DraftSource --> IndexedSource
-```
+- `Metadata`
+- `IndexedSourceBase`
 
-- RawSource: strings, arrays, or lazy/async providers
-- DraftSource: normalized envelope (kind + payload + origin)
-- IndexedSourceBase: metadata + content accessor for retrieval
+## `Metadata`
 
-## Indexed Sources (`source.ts`)
+Generated indexing metadata used for shallow relevance checks.
 
-- `IndexedSourceBase` is draft when `metadata` is missing
-- `getContent()` returns the retrieval payload or lazy provider
-- `buildIndexInput()` returns the string fed into the indexing agent
-- Concrete source classes define their own string `kind`
+- `title`
+- `description`
+- `keypoints`
+
+## `IndexedSourceBase`
+
+Base class for all source implementations.
+
+- `id` is the stable source identifier
+- `metadata` is optional; missing metadata means the source is still draft
+- `kind` is the source discriminator implemented by concrete classes
+- `isIterable` indicates whether the source behaves like a list/stream
+- `getContent()` returns the underlying source payload or lazy resolver output
+- `buildIndexInput()` returns the string used by `IndexingAgent`
+- `buildDeepJudgeInput()` returns the string used by deep `JudgeAgent` runs
+
+Concrete source classes in `core/sources` decide how content is exposed and how
+indexing/deep-judge input strings are constructed.
