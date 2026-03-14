@@ -1,0 +1,59 @@
+{
+  "name": "@contextrie/core",
+  "version": "0.2.2",
+  "description": "Dynamic context curation for long-running agent work, packaged as Contextrie's core TypeScript library.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "files": [
+    "index.ts",
+    "agents/**/*.ts",
+    "sources/**/*.ts",
+    "types/**/*.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "ai",
+    "agents",
+    "context",
+    "retrieval",
+    "rag",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuersteiner/contextrie.git",
+    "directory": "core"
+  },
+  "homepage": "https://github.com/feuersteiner/contextrie/tree/main/core",
+  "bugs": {
+    "url": "https://github.com/feuersteiner/contextrie/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "bun test",
+    "prepublishOnly": "npm run typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.8.0",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "ai": "^6.0.116",
+    "zod": "^4.1.11"
+  }
+}

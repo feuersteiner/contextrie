@@ -1,0 +1,50 @@
+{
+  "name": "@contextrie/cli",
+  "version": "0.1.2",
+  "description": "Command-line interface for Contextrie.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "bin": {
+    "contextrie": "dist/index.js"
+  },
+  "files": [
+    "dist/index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuersteiner/contextrie.git",
+    "directory": "cli"
+  },
+  "homepage": "https://github.com/feuersteiner/contextrie/tree/main/cli",
+  "bugs": {
+    "url": "https://github.com/feuersteiner/contextrie/issues"
+  },
+  "keywords": [
+    "contextrie",
+    "cli",
+    "agents",
+    "context"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "bun run ./index.ts",
+    "build": "bun build ./index.ts --target=node --outfile ./dist/index.js",
+    "build:darwin-arm64": "bun build ./index.ts --compile --target=bun-darwin-arm64 --outfile ./dist/contextrie-darwin-arm64",
+    "prepack": "bun run typecheck && bun run build"
+  },
+  "devDependencies": {
+    "@ai-sdk/openai": "^2.0.0",
+    "@contextrie/core": "file:../core",
+    "@contextrie/parsers": "file:../parsers",
+    "@types/bun": "latest",
+    "@types/node": "^24.8.1",
+    "fast-glob": "^3.3.3",
+    "meow": "^13.2.0",
+    "typescript": "^5"
+  }
+}
