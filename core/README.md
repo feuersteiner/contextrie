@@ -16,6 +16,7 @@ It does not handle IO, crawling, or storage.
 
 ## Install
 
+<<<<<<< HEAD
 ```bash
 npm install @contextrie/core ai zod
 ```
@@ -48,6 +49,8 @@ If you need plain precompiled JavaScript output for direct Node consumption, bui
 - `JudgeAgent`: scores source relevance for a task
 - `ComposerAgent`: condenses judged sources into a single context paragraph
 - `flatMapSections`: generates per-section metadata for section trees
+- `mapReduceSections`: rolls section metadata bottom-up through a tree
+- `parseMarkdownSections`: parses markdown headings into section trees
 
 ## Quick example
 
@@ -106,7 +109,7 @@ console.log(context);
 ## Package boundaries
 
 - no filesystem or network IO abstractions
-- no parsing or source discovery
+- no source discovery
 - no storage or persistence layer
 - no framework-specific adapters
 
