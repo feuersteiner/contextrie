@@ -1,0 +1,55 @@
+{
+  "name": "@contextrie/parsers",
+  "version": "0.1.2",
+  "description": "Node-based file parsers that return Contextrie core source instances.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuersteiner/contextrie.git",
+    "directory": "parsers"
+  },
+  "homepage": "https://github.com/feuersteiner/contextrie/tree/main/parsers",
+  "bugs": {
+    "url": "https://github.com/feuersteiner/contextrie/issues"
+  },
+  "keywords": [
+    "contextrie",
+    "parser",
+    "csv",
+    "markdown",
+    "text",
+    "rag"
+  ],
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.ts",
+    "README.md",
+    "CONTRIBUTING.md",
+    "sources/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run typecheck"
+  },
+  "dependencies": {
+    "@contextrie/core": "^0.2.2",
+    "human-id": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.8.1",
+    "typescript": "^5"
+  }
+}
