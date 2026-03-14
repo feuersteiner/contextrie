@@ -9,12 +9,12 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 ## Structure
 
 - types/ Contracts for sources, raw inputs, and ingest interfaces
-- ingest/ Ingestion strategies (flat-map, future map-reduce)
+- ingest/ Markdown parsing and ingestion strategies (flat-map, map-reduce)
 
 ## Boundaries
 
 - No IO in core
-- No parsing or file formats in core
+- Markdown section parsing lives in ingest/; other format adapters belong in higher-level packages
 - Keep types small and composable
 
 ## Development
