@@ -9,6 +9,7 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 ## Structure
 
 - types/ Contracts for sources, raw inputs, and ingest interfaces
+- ingest/ Ingestion strategies (flat-map, future map-reduce)
 
 ## Boundaries
 
