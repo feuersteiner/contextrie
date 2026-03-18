@@ -1,10 +1,14 @@
 # Contributing (core)
 
+Lightweight package, strict boundaries.
+
 ## Setup
 
 ```bash
 bun install
 ```
+
+---
 
 ## Development
 
@@ -12,6 +16,8 @@ bun install
 bun run typecheck
 bun run format
 ```
+
+---
 
 ## Notes
 
