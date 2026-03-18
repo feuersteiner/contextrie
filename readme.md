@@ -12,7 +12,11 @@
   <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
 </p>
 
+<p align="center"><strong>Dynamic context curation for long-running agent work.</strong></p>
+
 AI agents lose accuracy and reasoning ability as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.
+
+---
 
 ## Repo Layout
 
@@ -27,6 +31,8 @@ AI agents lose accuracy and reasoning ability as they accumulate irrelevant cont
 └─ README.md      Project overview
 ```
 
+---
+
 ## Concepts
 
 - Parser: converts raw input into `DraftSource`
@@ -39,15 +45,21 @@ flowchart LR
   RawSource --> DraftSource --> IndexedSource
 ```
 
+---
+
 ## API Shape
 
 - `ctx.ingest.from(input).run()`
 - `ctx.assess.task(...).from(...).run()`
 - `ctx.compose.task(...).from(...).run()`
 
+---
+
 ## Getting Started
 
 Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
+
+---
 
 ## Status
 
