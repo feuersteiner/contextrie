@@ -2,9 +2,13 @@
 
 TypeScript core library for Contextrie. Defines indexing contracts and source primitives used across the system.
 
+> Lean contracts, indexed sources, and core agent interfaces.
+
 ## Purpose
 
 Core is intentionally thin: it only defines types and contracts. IO, parsing, and format handling belong in adapters or higher-level packages.
+
+---
 
 ## Structure
 
@@ -12,11 +16,15 @@ Core is intentionally thin: it only defines types and contracts. IO, parsing, an
 - sources/ Indexed source implementations
 - agents/ Core agents, including metadata indexing
 
+---
+
 ## Boundaries
 
 - No IO in core
 - No parsing or file formats in core
 - Keep types small and composable
+
+---
 
 ## Development
 
