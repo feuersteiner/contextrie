@@ -75,7 +75,7 @@ Contextrie is for systems where agents should not see everything all the time.
 
 It gives you primitives to:
 
-- turn raw material into retrieval-ready sources
+- define sources around the content you want to retrieve
 - generate metadata for those sources
 - score relevance against a task
 - compose a tighter working context for the next agent step
@@ -115,8 +115,8 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 - Python support
 - Hosted docs site
 - Parsers package
-- CLI package on npm
-- CLI package on Homebrew
+- CLI binary distribution
+- More examples and eval coverage
 
 ---
 
@@ -147,14 +147,15 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 
 ## Concepts
 
-- Parser: converts raw input into `DraftSource`
-- IndexingAgent: turns `DraftSource` into `IndexedSource`
+- Sources always carry underlying content
+- A source without metadata is still draft
+- `IndexingAgent` adds metadata to that source for retrieval and shallow judgment
 
 State flow:
 
 ```mermaid
 flowchart LR
-  RawSource --> DraftSource --> IndexedSource
+  Source["Source (content, no metadata)"] --> IndexedSource["Source (content + metadata)"]
 ```
 
 ---

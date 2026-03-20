@@ -62,7 +62,7 @@ const sources = [
   new DocumentSource(
     "architecture",
     undefined,
-    "The indexing pipeline stores metadata separately from raw source content.",
+    "The indexing pipeline adds metadata to a source while preserving the underlying content for deep judgment.",
   ),
   new DocumentSource(
     "roadmap",
@@ -127,6 +127,8 @@ Metadata is optional at construction time. A source without metadata is treated 
 - `title`
 - `description`
 - `keypoints`
+
+Indexing mutates the same source object by filling in `source.metadata`.
 
 ### Judgment
 
