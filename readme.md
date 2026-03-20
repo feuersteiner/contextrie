@@ -33,15 +33,38 @@ Extremely brief how to:
 
 ```ts
 import { openai } from "@ai-sdk/openai";
-import { DocumentSource, IndexingAgent, JudgeAgent } from "@contextrie/core";
+import {
+  ComposerAgent,
+  DocumentSource,
+  IndexingAgent,
+  JudgeAgent,
+} from "@contextrie/core";
 
-const model = openai("gpt-4.1-mini");
-const source = new DocumentSource("doc-1", undefined, "your content");
+const model = openai("gpt-5.4");
+const objective = "response";
+const task = "Explain which internal docs matter most when debugging why retrieval is missing indexed metadata.";
+const source = new DocumentSource(
+  "indexing-architecture",
+  undefined,
+  "Indexed sources store generated metadata separately from source content, and shallow judgment relies on that metadata for fast relevance scoring.",
+);
 const indexed = await new IndexingAgent(model).add(source).run();
-const judged = await new JudgeAgent(model).from(indexed).run({
-  objective: "response",
-  input: "your task",
+const judgments = await new JudgeAgent(model).from(indexed).run({
+  objective,
+  input: task,
 });
+const context = await new ComposerAgent(model)
+  .from(
+    Object.fromEntries(
+      indexed.map((item) => [item.id, { source: item, decision: judgments[item.id] }]),
+    ),
+  )
+  .run({
+    objective,
+    input: task,
+  });
+
+console.log(context);
 ```
 
 ---
