@@ -1,6 +1,6 @@
 {
   "name": "@contextrie/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Dynamic context curation for long-running agent work, packaged as Contextrie's core TypeScript library.",
   "license": "MIT",
   "type": "module",
