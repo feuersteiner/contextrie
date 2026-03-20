@@ -3,10 +3,11 @@
 <p align="center">
   <a href="https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Manifesto-Read-blue" alt="Manifesto"></a>
   <a href="https://www.youtube.com/watch?v=G0_LVAIyRWI" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white" alt="YouTube Demo"></a>
+  <a href="https://www.npmjs.com/package/@contextrie/core" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcore?label=npm&logo=npm" alt="npm package"></a>
   <a href="https://discord.gg/ayX9hm4D" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
-![Contextrie header](assets/github-header.png)
+![Contextrie header](./assets/github-header.png)
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
@@ -14,30 +15,83 @@
 
 <p align="center"><strong>Dynamic context curation for long-running agent work.</strong></p>
 
-AI agents lose accuracy and reasoning ability as they accumulate irrelevant context over long-running tasks. Contextrie dynamically curates what each agent sees, keeping it sharp from task one to task one thousand.
+AI agents get worse as irrelevant context piles up. Contextrie helps you select, index, judge, and compose the right context for each task so long-running agent systems stay sharp.
+
+Contextrie is a context-engineering toolkit for agent workflows. The first published package is `@contextrie/core`.
 
 ---
 
-## Install
+## Start Here
 
-Core is now published on npm:
+Install the core package:
 
 ```bash
 npm install @contextrie/core
 ```
 
-Extremely brief how-to:
+Extremely brief how to:
 
 ```ts
+import { openai } from "@ai-sdk/openai";
 import { DocumentSource, IndexingAgent, JudgeAgent } from "@contextrie/core";
 
+const model = openai("gpt-4.1-mini");
 const source = new DocumentSource("doc-1", undefined, "your content");
 const indexed = await new IndexingAgent(model).add(source).run();
-const result = await new JudgeAgent(model).from(indexed).run({
+const judged = await new JudgeAgent(model).from(indexed).run({
   objective: "response",
   input: "your task",
 });
 ```
+
+---
+
+## What This Is
+
+Contextrie is for systems where agents should not see everything all the time.
+
+It gives you primitives to:
+
+- turn raw material into retrieval-ready sources
+- generate metadata for those sources
+- score relevance against a task
+- compose a tighter working context for the next agent step
+
+---
+
+## Why It Exists
+
+Most agent systems fail gradually, not instantly. They accumulate irrelevant context, lose precision, and waste tokens. Contextrie makes context selection a first-class part of the system instead of an afterthought.
+
+---
+
+## Packages
+
+- `@contextrie/core`: published now, TypeScript contracts and core agents
+- `docs`: documentation site in progress
+- `parsers`: planned
+- `cli`: planned
+- `python`: planned
+
+---
+
+## Roadmap 🚧
+
+- Python support
+- Hosted docs site
+- Parsers package
+- CLI package on npm
+- CLI package on Homebrew
+
+---
+
+## Call To Action
+
+- Install and try `@contextrie/core`
+- Read the manifesto
+- Watch the demo
+- Join the Discord
+- Open an issue if you want a parser, adapter, or language target
 
 ---
 
@@ -67,14 +121,6 @@ State flow:
 flowchart LR
   RawSource --> DraftSource --> IndexedSource
 ```
-
----
-
-## API Shape
-
-- `ctx.ingest.from(input).run()`
-- `ctx.assess.task(...).from(...).run()`
-- `ctx.compose.task(...).from(...).run()`
 
 ---
 
