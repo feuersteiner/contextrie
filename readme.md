@@ -98,6 +98,18 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 
 ---
 
+## Examples
+
+Runnable examples are available in [`examples/`](./examples/README.md).
+
+Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smallest end-to-end flow:
+
+- index a few sources
+- judge them against a task
+- compose the final context output
+
+---
+
 ## Roadmap 🚧
 
 - Python support
