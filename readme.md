@@ -18,6 +18,20 @@ AI agents lose accuracy and reasoning ability as they accumulate irrelevant cont
 
 ---
 
+## Install
+
+Core is now published on npm:
+
+```bash
+npm install @contextrie/core
+```
+
+Package:
+
+- `@contextrie/core`: core TypeScript contracts, source primitives, and retrieval-oriented agents
+
+---
+
 ## Repo Layout
 
 ```
@@ -58,6 +72,8 @@ flowchart LR
 ## Getting Started
 
 Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
+
+For library usage, start with [`core/README.md`](core/README.md).
 
 ---
 

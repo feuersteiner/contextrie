@@ -6,13 +6,11 @@
       "name": "core",
       "dependencies": {
         "ai": "^6.0.116",
+        "zod": "^4.1.11",
       },
       "devDependencies": {
         "@types/bun": "latest",
         "prettier": "^3.8.0",
-        "typescript": "^5",
-      },
-      "peerDependencies": {
         "typescript": "^5",
       },
     },
