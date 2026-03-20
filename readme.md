@@ -26,9 +26,18 @@ Core is now published on npm:
 npm install @contextrie/core
 ```
 
-Package:
+Extremely brief how-to:
 
-- `@contextrie/core`: core TypeScript contracts, source primitives, and retrieval-oriented agents
+```ts
+import { DocumentSource, IndexingAgent, JudgeAgent } from "@contextrie/core";
+
+const source = new DocumentSource("doc-1", undefined, "your content");
+const indexed = await new IndexingAgent(model).add(source).run();
+const result = await new JudgeAgent(model).from(indexed).run({
+  objective: "response",
+  input: "your task",
+});
+```
 
 ---
 
