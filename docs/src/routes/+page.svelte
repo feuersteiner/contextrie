@@ -37,8 +37,8 @@
 			<div class="eyebrow">Flow</div>
 			<h2>Indexing path</h2>
 			<p class="muted">
-				Raw input is parsed into draft material, then promoted into indexed sources that
-				agents can assess and compose against.
+				Sources start as content without metadata, then indexing adds retrieval metadata
+				that agents can judge and compose against.
 			</p>
 		</article>
 	</section>

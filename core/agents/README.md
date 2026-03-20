@@ -4,7 +4,7 @@ Core language-model agents built on top of sources and types.
 
 ## Available Agents
 
-- `indexing/` generates `Metadata` for draft sources
+- `indexing/` generates `Metadata` for sources that do not have it yet
 - `judge/` scores source relevance for a task
 - `composer/` exists in the module surface but currently has no implementation
 

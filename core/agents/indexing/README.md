@@ -1,16 +1,16 @@
 # Indexing Agent
 
-Indexing turns draft sources into indexed sources by generating retrieval metadata.
+Indexing adds retrieval metadata to sources that do not have metadata yet.
 
 ## Flow
 
 ```mermaid
 flowchart LR
-  DraftSource --> IndexingAgent[IndexingAgent]
-  IndexingAgent --> IndexedSource
+  Source["Source (content, no metadata)"] --> IndexingAgent[IndexingAgent]
+  IndexingAgent --> IndexedSource["Source (content + metadata)"]
 
   classDef data fill:none,stroke:none,color:#555;
-  class DraftSource,IndexedSource data;
+  class Source,IndexedSource data;
 ```
 
 ## Contracts
