@@ -17,16 +17,16 @@
 
 AI agents get worse as irrelevant context piles up. Contextrie helps you select, index, judge, and compose the right context for each task so long-running agent systems stay sharp.
 
-Contextrie is a context-engineering toolkit for agent workflows. The first published package is `@contextrie/core`.
+Contextrie is a context-engineering toolkit for agent workflows. Published packages now include `@contextrie/core` and `@contextrie/parsers`.
 
 ---
 
 ## Start Here
 
-Install the core package:
+Install the packages:
 
 ```bash
-npm install @contextrie/core
+npm install @contextrie/core @contextrie/parsers
 ```
 
 Extremely brief how to:
@@ -91,9 +91,9 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 ## Packages
 
 - `@contextrie/core`: published now, TypeScript contracts and core agents
+- `@contextrie/parsers`: published now, file parsers for `.csv`, `.md`, and `.txt`
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
-- `parsers`: planned
 - `cli`: planned
 - `python`: planned
 
@@ -109,6 +109,8 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 - judge them against a task
 - compose the final context output
 
+Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalone package example that consumes `@contextrie/parsers` and parses local files into Contextrie sources.
+
 Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 
 ---
@@ -118,7 +120,6 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 - Benchmark harness and eval protocol
 - Python support
 - Hosted docs site
-- Parsers package
 - CLI binary distribution
 - More examples and eval coverage
 
@@ -127,6 +128,7 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 ## Call To Action
 
 - Install and try `@contextrie/core`
+- Install and try `@contextrie/parsers`
 - Read the manifesto
 - Watch the demo
 - Join the Discord
