@@ -91,6 +91,7 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 ## Packages
 
 - `@contextrie/core`: published now, TypeScript contracts and core agents
+- `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
 - `parsers`: planned
 - `cli`: planned
@@ -108,10 +109,13 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 - judge them against a task
 - compose the final context output
 
+Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
+
 ---
 
 ## Roadmap 🚧
 
+- Benchmark harness and eval protocol
 - Python support
 - Hosted docs site
 - Parsers package
@@ -135,6 +139,7 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 ```
 .
 ├─ assets/        Visuals and branding
+├─ benchmarks/    Benchmark protocol and future harness
 ├─ cli/           Bun CLI wrapper
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
@@ -165,6 +170,7 @@ flowchart LR
 Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
 
 For library usage, start with [`core/README.md`](core/README.md).
+For evaluation work, start with [`benchmarks/README.md`](benchmarks/README.md).
 
 ---
 
