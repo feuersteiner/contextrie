@@ -1,0 +1,5 @@
+Night shift handoff
+Replay the three stuck webhook deliveries
+Verify the 02:00 backup finished in eu-west-1
+Page infra only if replication lag stays above 10 minutes
+Post a summary in #ops-handoff before 08:30
