@@ -5,6 +5,23 @@
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuersteiner/contextrie.git",
+    "directory": "parsers"
+  },
+  "homepage": "https://github.com/feuersteiner/contextrie/tree/main/parsers",
+  "bugs": {
+    "url": "https://github.com/feuersteiner/contextrie/issues"
+  },
+  "keywords": [
+    "contextrie",
+    "parser",
+    "csv",
+    "markdown",
+    "text",
+    "rag"
+  ],
   "module": "./index.ts",
   "types": "./index.ts",
   "exports": {
@@ -12,6 +29,9 @@
       "types": "./index.ts",
       "default": "./index.ts"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "index.ts",
