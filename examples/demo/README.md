@@ -63,3 +63,5 @@ This shows the intended behavior clearly:
 - indexing produces retrieval-oriented metadata
 - judging scores each source against the task
 - composing turns the highest-value judged material into one concise context output
+
+For parser-specific examples, see [`../parsers/README.md`](../parsers/README.md).

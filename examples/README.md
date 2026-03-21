@@ -20,3 +20,13 @@ Small end-to-end example of the core flow:
 - run `ComposerAgent` to produce the final context
 
 Use this example to see the actual runtime behavior and console output for a minimal Contextrie pipeline.
+
+### [`parsers`](./parsers/README.md)
+
+Standalone parser example package using the published `@contextrie/parsers` package.
+
+It shows:
+
+- short CSV parsed as `DocumentSource`
+- longer CSV parsed as `ListSource`
+- markdown and text fixtures parsed from local files
