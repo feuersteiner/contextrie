@@ -1,13 +1,14 @@
-# cli
+# contextrie-cli
 
-> Bun-powered command-line surface for Contextrie.
+Thin Bun CLI package for Contextrie.
+
+## Run
+
+```bash
+bun install
+bun run ./index.ts --help
+```
 
 ## Status
 
-Work in progress.
-
-## Focus
-
-- developer-friendly local workflows
-- standalone distribution targets
-- thin wrapper around the core package
+The package currently ships a default entry point and loads `@contextrie/core` plus `@contextrie/parsers`. Real commands come next.
