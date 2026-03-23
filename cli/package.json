@@ -1,0 +1,53 @@
+{
+  "name": "contextrie-cli",
+  "version": "0.1.0",
+  "description": "Bun-powered command-line surface for Contextrie.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "bin": {
+    "contextrie": "./index.ts"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "files": [
+    "index.ts",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuersteiner/contextrie.git",
+    "directory": "cli"
+  },
+  "homepage": "https://github.com/feuersteiner/contextrie/tree/main/cli",
+  "bugs": {
+    "url": "https://github.com/feuersteiner/contextrie/issues"
+  },
+  "keywords": [
+    "contextrie",
+    "cli",
+    "agents",
+    "context"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "bun run ./index.ts"
+  },
+  "dependencies": {
+    "@contextrie/core": "file:../core",
+    "@contextrie/parsers": "file:../parsers"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  }
+}
