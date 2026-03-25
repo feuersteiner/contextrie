@@ -16,8 +16,9 @@ export class ReferenceDocumentSource extends IndexedSourceBase {
     metadata: Metadata | undefined,
     /** Returns the resolved document text. */
     public getContent: () => Promise<string> | string,
+    path?: string,
   ) {
-    super(id, metadata);
+    super(id, metadata, path);
   }
 
   get isIterable(): false {

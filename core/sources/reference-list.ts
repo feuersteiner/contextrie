@@ -18,8 +18,9 @@ export class ReferenceListSource extends IndexedSourceBase {
     public getContent: () =>
       | Promise<AsyncIterable<string>>
       | AsyncIterable<string>,
+    path?: string,
   ) {
-    super(id, metadata);
+    super(id, metadata, path);
     this.getContent = getContent;
   }
 

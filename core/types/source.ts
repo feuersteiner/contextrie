@@ -20,10 +20,12 @@ export abstract class IndexedSourceBase {
   /**
    * @param id Unique source ID
    * @param metadata Optional metadata; missing metadata means source is draft.
+   * @param path Optional source provenance path
    */
   constructor(
     public id: string,
     public metadata?: Metadata,
+    public path?: string,
   ) {}
 
   /** True when source has not been indexed yet. */
