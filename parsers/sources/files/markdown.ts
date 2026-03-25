@@ -9,10 +9,10 @@ export const parseMarkdownFileSource = async (
   const id = generateId();
 
   if (shouldParseMarkdownAsList(content)) {
-    return new ListSource(id, undefined, toMarkdownItems(content));
+    return new ListSource(id, undefined, toMarkdownItems(content), filePath);
   }
 
-  return new DocumentSource(id, undefined, content);
+  return new DocumentSource(id, undefined, content, filePath);
 };
 
 const readTextFile = async (filePath: string): Promise<string> => {

@@ -14,6 +14,7 @@ npm install @contextrie/parsers @contextrie/core
 import {
   parseCsvFileSource,
   parseMarkdownFileSource,
+  parseReferenceTextFileSource,
   parseTextFileSource,
 } from "@contextrie/parsers";
 
@@ -21,34 +22,43 @@ const csvSource = await parseCsvFileSource("./examples/example.csv");
 const codeSource = await parseTextFileSource("./examples/example.ts");
 const markdownSource = await parseMarkdownFileSource("./examples/example.md");
 const textSource = await parseTextFileSource("./examples/example.txt");
+const referenceSource = await parseReferenceTextFileSource("./examples/example.ts");
 
-console.log(csvSource.kind, csvSource.getContent());
-console.log(codeSource.kind, codeSource.getContent());
-console.log(markdownSource.kind, markdownSource.getContent());
-console.log(textSource.kind, textSource.getContent());
+console.log(csvSource.kind, csvSource.path, csvSource.getContent());
+console.log(codeSource.kind, codeSource.path, codeSource.getContent());
+console.log(markdownSource.kind, markdownSource.path, markdownSource.getContent());
+console.log(textSource.kind, textSource.path, textSource.getContent());
+console.log(referenceSource.kind, referenceSource.path);
 ```
 
 ## API
 
-- `parseTextFileSource(path): Promise<DocumentSource | ListSource>`
+- `parseTextFileSource(path): Promise<DocumentSource>`
+- `parseReferenceTextFileSource(path, options?): Promise<ReferenceDocumentSource>`
 - `supportsTextFileSource(path): boolean`
 - `parseMarkdownFileSource(path): Promise<DocumentSource | ListSource>`
-- `parseCsvFileSource(path): Promise<DocumentSource | ListSource>`
+- `parseCsvFileSource(path): Promise<ListSource>`
 
-Each parser reads a file from disk and returns either:
+Parsers return:
 
-- `DocumentSource` for content that should stay as one document
-- `ListSource` for content that is better represented as a list of items
+- `parseTextFileSource`: `DocumentSource`
+- `parseReferenceTextFileSource`: `ReferenceDocumentSource`
+- `parseMarkdownFileSource`: `DocumentSource | ListSource`
+- `parseCsvFileSource`: `ListSource`
+
+All file-based sources set `source.path` to the input file path.
+
+`parseReferenceTextFileSource` returns a lazy file-backed source and also sets `source.path`.
 
 ## Parsing behavior
 
 - `parseTextFileSource` supports `.txt` plus common code/text extensions such as `.ts`, `.js`, `.json`, `.yaml`, `.xml`, `.html`, `.css`, `.sh`, and more
-- text/code files: prose-like content becomes `DocumentSource`; many short lines or checklist-style content becomes `ListSource`
+- text/code files stay as `DocumentSource`
 - `.md`: prose-like content becomes `DocumentSource`; heading-heavy or list-heavy content becomes `ListSource`
-- `.csv`: small/simple tables become `DocumentSource`; larger tables become `ListSource`
+- `.csv`: rows are returned as `ListSource` items
 
 ## Notes
 
 - File reading uses `node:fs/promises` and `node:path`
-- Source IDs are derived from the input file path
-- An executable example lives in `examples/parsers.ts`
+- Source IDs are generated per parsed source
+- An executable example lives in `parsers/example/index.ts`
