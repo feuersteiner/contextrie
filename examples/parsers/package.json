@@ -9,6 +9,6 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@contextrie/parsers": "^0.1.0"
+    "@contextrie/parsers": "^0.1.1"
   }
 }
