@@ -3,7 +3,9 @@
 <p align="center">
   <a href="https://flintworks.dev/blog/engineering/humans-managed-deep-contexts-agents-are-not-different" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Manifesto-Read-blue" alt="Manifesto"></a>
   <a href="https://www.youtube.com/watch?v=G0_LVAIyRWI" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white" alt="YouTube Demo"></a>
-  <a href="https://www.npmjs.com/package/@contextrie/core" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcore?label=npm&logo=npm" alt="npm package"></a>
+  <a href="https://www.npmjs.com/package/@contextrie/core" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcore?label=%40contextrie%2Fcore&logo=npm" alt="@contextrie/core"></a>
+  <a href="https://www.npmjs.com/package/@contextrie/parsers" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fparsers?label=%40contextrie%2Fparsers&logo=npm" alt="@contextrie/parsers"></a>
+  <a href="https://www.npmjs.com/package/@contextrie/cli" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcli?label=%40contextrie%2Fcli&logo=npm" alt="@contextrie/cli"></a>
   <a href="https://discord.gg/ayX9hm4D" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
@@ -32,13 +34,12 @@ Status: early development; expect breaking changes.
 
 ### CLI quickstart
 
-Use the CLI from this repo to index local files and compose context for a task.
+Install the published CLI and use `contextrie` directly.
 
 ```bash
-cd cli
-bun install
-bun run ./index.ts --index --all --openai-api-key "$OPENAI_API_KEY" --openai-model "gpt-5.4"
-bun run ./index.ts --task "Summarize the files most relevant to parser source path handling."
+npm install -g @contextrie/cli
+contextrie --index --all --openai-api-key "$OPENAI_API_KEY" --openai-model "gpt-5.4"
+contextrie --task "Summarize the files most relevant to parser source path handling."
 ```
 
 This writes:
@@ -47,6 +48,8 @@ This writes:
 - `.contextrie/context.md`: the composed task-specific context
 
 Use `--openai-base-url` as well if you are targeting an OpenAI-compatible provider.
+
+For local development inside this repo, you can still run `bun run ./cli/index.ts ...`.
 
 ### Library quickstart
 
@@ -119,7 +122,7 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 
 - `@contextrie/core`: published now, TypeScript contracts and core agents
 - `@contextrie/parsers`: published now, file parsers for `.csv`, `.md`, and `.txt`
-- `cli`: Bun CLI for indexing local text sources and composing task-specific context
+- `@contextrie/cli`: published npm CLI for indexing local sources and composing task-specific context
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
 - `python`: planned
@@ -169,7 +172,7 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 .
 ├─ assets/        Visuals and branding
 ├─ benchmarks/    Benchmark protocol and future harness
-├─ cli/           Bun CLI wrapper
+├─ cli/           Published npm CLI package
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
