@@ -10,6 +10,7 @@ const main = async (): Promise<void> => {
   const parsedSources = await Promise.all([
     parseCsvFileSource(path.join(examplesDir, "files/example-short.csv")),
     parseCsvFileSource(path.join(examplesDir, "files/example.csv")),
+    parseTextFileSource(path.join(examplesDir, "files/example.ts")),
     parseMarkdownFileSource(path.join(examplesDir, "files/example.md")),
     parseTextFileSource(path.join(examplesDir, "files/example.txt")),
   ]);
@@ -17,8 +18,9 @@ const main = async (): Promise<void> => {
   const labeledSources = [
     { label: "CSV example (short)", source: parsedSources[0] },
     { label: "CSV example (long)", source: parsedSources[1] },
-    { label: "Markdown example", source: parsedSources[2] },
-    { label: "Text example", source: parsedSources[3] },
+    { label: "Code text example", source: parsedSources[2] },
+    { label: "Markdown example", source: parsedSources[3] },
+    { label: "Text example", source: parsedSources[4] },
   ];
 
   for (const { label, source } of labeledSources) {
