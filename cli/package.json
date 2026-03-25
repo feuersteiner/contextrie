@@ -1,21 +1,15 @@
 {
-  "name": "contextrie-cli",
-  "version": "0.1.1",
-  "description": "macOS arm64 CLI binary for Contextrie.",
+  "name": "@contextrie/cli",
+  "version": "0.1.2",
+  "description": "Command-line interface for Contextrie.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "contextrie": "dist/contextrie"
+    "contextrie": "dist/index.js"
   },
-  "os": [
-    "darwin"
-  ],
-  "cpu": [
-    "arm64"
-  ],
   "files": [
-    "dist/contextrie",
+    "dist/index.js",
     "README.md"
   ],
   "repository": {
@@ -39,8 +33,8 @@
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "start": "bun run ./index.ts",
-    "build": "bun build ./index.ts --compile --target=bun-darwin-arm64 --outfile ./dist/contextrie",
-    "build:darwin-arm64": "bun run build",
+    "build": "bun build ./index.ts --target=node --outfile ./dist/index.js",
+    "build:darwin-arm64": "bun build ./index.ts --compile --target=bun-darwin-arm64 --outfile ./dist/contextrie-darwin-arm64",
     "prepack": "bun run typecheck && bun run build"
   },
   "devDependencies": {
@@ -49,6 +43,7 @@
     "@contextrie/parsers": "file:../parsers",
     "@types/bun": "latest",
     "@types/node": "^24.8.1",
+    "fast-glob": "^3.3.3",
     "meow": "^13.2.0",
     "typescript": "^5"
   }
