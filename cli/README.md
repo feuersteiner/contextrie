@@ -1,6 +1,6 @@
 # contextrie-cli
 
-macOS arm64 CLI binary for indexing local sources and composing task-specific context with Contextrie.
+Node CLI for indexing local sources and composing task-specific context with Contextrie.
 
 The CLI writes its working files under `.contextrie/` in the current project:
 
@@ -32,6 +32,8 @@ bun run ./index.ts --task "Summarize the files most relevant to parser source pa
 ```
 
 Use `--openai-base-url` as well if you are targeting an OpenAI-compatible provider.
+
+For the standalone macOS arm64 binary, use the separate compiled artifact and Homebrew flow. That is distinct from the npm `bin` entrypoint.
 
 ## Usage
 

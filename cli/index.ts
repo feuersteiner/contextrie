@@ -1,9 +1,10 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
+import { globSync } from "fast-glob";
 import meow from "meow";
 import { createOpenAI } from "@ai-sdk/openai";
 import {
@@ -312,15 +313,21 @@ const rehydrateSource = async (
 };
 
 const listDirectoryFiles = (directoryPath: string): string[] =>
-  Array.from(new Bun.Glob("**/*").scanSync({ cwd: directoryPath, dot: true }))
-    .map((entry) => path.join(directoryPath, entry))
-    .filter((entry) => statSync(entry).isFile());
+  globSync("**/*", {
+    absolute: true,
+    cwd: directoryPath,
+    dot: true,
+    onlyFiles: true,
+  }).map((entry) => path.resolve(entry));
 
 const expandInput = (rootDirectory: string, input: string): string[] => {
   if (isGlobPattern(input)) {
-    return Array.from(
-      new Bun.Glob(input).scanSync({ cwd: rootDirectory, dot: true }),
-    ).map((entry) => path.join(rootDirectory, entry));
+    return globSync(input, {
+      absolute: true,
+      cwd: rootDirectory,
+      dot: true,
+      onlyFiles: false,
+    }).map((entry) => path.resolve(entry));
   }
 
   const absolutePath = path.resolve(rootDirectory, input);
@@ -370,9 +377,12 @@ const discoverAllFiles = (rootDirectory: string): string[] => {
     return gitFiles;
   }
 
-  return Array.from(
-    new Bun.Glob("**/*").scanSync({ cwd: rootDirectory, dot: true }),
-  ).map((entry) => path.join(rootDirectory, entry));
+  return globSync("**/*", {
+    absolute: true,
+    cwd: rootDirectory,
+    dot: true,
+    onlyFiles: true,
+  }).map((entry) => path.resolve(entry));
 };
 
 const resolveIndexTargets = (rootDirectory: string): string[] => {
