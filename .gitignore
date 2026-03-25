@@ -1,4 +1,5 @@
 .env
+.contextrie/
 .cache
 .DS_STORE
 plan.md
