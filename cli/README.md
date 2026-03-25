@@ -1,6 +1,6 @@
 # contextrie-cli
 
-Bun CLI for indexing local text sources and composing task-specific context with Contextrie.
+macOS arm64 CLI binary for indexing local sources and composing task-specific context with Contextrie.
 
 The CLI writes its working files under `.contextrie/` in the current project:
 
@@ -9,6 +9,21 @@ The CLI writes its working files under `.contextrie/` in the current project:
 - `context.md`: composed context for the current task
 
 ## Quickstart
+
+Install globally with npm:
+
+```bash
+npm install -g contextrie-cli
+```
+
+Then run:
+
+```bash
+contextrie --index --all --openai-api-key "$OPENAI_API_KEY" --openai-base-url "$OPENAI_BASE_URL" --openai-model "gpt-5.4"
+contextrie --task "Summarize the files most relevant to parser source path handling."
+```
+
+For local development with Bun:
 
 ```bash
 bun install
@@ -38,7 +53,7 @@ Index explicit files, directories, or globs:
 bun run ./index.ts --index README.md core parsers
 ```
 
-Index all supported text files in the current repository:
+Index all supported source files in the current repository:
 
 ```bash
 bun run ./index.ts --index --all

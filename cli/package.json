@@ -1,23 +1,17 @@
 {
   "name": "contextrie-cli",
-  "version": "0.1.0",
-  "description": "Bun-powered command-line surface for Contextrie.",
+  "version": "0.1.1",
+  "description": "macOS arm64 CLI binary for Contextrie.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "module": "./index.ts",
-  "types": "./index.ts",
   "bin": {
-    "contextrie": "./index.ts"
+    "contextrie": "./dist/contextrie"
   },
-  "exports": {
-    ".": {
-      "types": "./index.ts",
-      "default": "./index.ts"
-    }
-  },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
   "files": [
-    "index.ts",
+    "dist/contextrie",
     "README.md"
   ],
   "repository": {
@@ -40,14 +34,18 @@
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "start": "bun run ./index.ts"
-  },
-  "dependencies": {
-    "@contextrie/core": "file:../core",
-    "@contextrie/parsers": "file:../parsers"
+    "start": "bun run ./index.ts",
+    "build": "bun build ./index.ts --compile --target=bun-darwin-arm64 --outfile ./dist/contextrie",
+    "build:darwin-arm64": "bun run build",
+    "prepack": "bun run typecheck && bun run build"
   },
   "devDependencies": {
+    "@ai-sdk/openai": "^2.0.0",
+    "@contextrie/core": "file:../core",
+    "@contextrie/parsers": "file:../parsers",
     "@types/bun": "latest",
+    "@types/node": "^24.8.1",
+    "meow": "^13.2.0",
     "typescript": "^5"
   }
 }
