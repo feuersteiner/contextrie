@@ -40,6 +40,17 @@ This is not meant to be a leaderboard. It is meant to show whether Contextrie he
 - compare baseline and `+contextrie` as paired runs
 - compare efficiency and efficacy together
 
+For the first benchmark shape, each task runs in four modes:
+
+- Codex
+- Codex + Contextrie
+- OpenCode
+- OpenCode + Contextrie
+
+Each run should start from a fresh session and fresh repo worktree so thread history and prior file changes do not leak across runs.
+
+For `+contextrie` runs, the agent prompt stays the same, but Contextrie prepares a curated context bundle first and that bundle is injected ahead of the task prompt.
+
 ## Metrics to capture
 
 - success
@@ -49,3 +60,18 @@ This is not meant to be a leaderboard. It is meant to show whether Contextrie he
 - latency
 - context volume
 - judge rationale
+
+Minimum capture for the first runnable harness:
+
+- wall-clock time from prompt submit to final diff
+- final diff or patch
+- pass or fail
+- optional token counts when the tool exposes them
+
+## Judging
+
+Use Codex as the first judge on final diffs.
+
+- judge against the original task and one fixed rubric
+- blind the diffs so the judge does not know which mode produced them
+- keep judging separate from generation runs
