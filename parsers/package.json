@@ -1,6 +1,6 @@
 {
   "name": "@contextrie/parsers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node-based file parsers that return Contextrie core source instances.",
   "license": "MIT",
   "type": "module",
