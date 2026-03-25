@@ -6,10 +6,14 @@
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "contextrie": "./dist/contextrie"
+    "contextrie": "dist/contextrie"
   },
-  "os": ["darwin"],
-  "cpu": ["arm64"],
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
   "files": [
     "dist/contextrie",
     "README.md"
