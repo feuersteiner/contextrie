@@ -15,8 +15,9 @@ export class DocumentSource extends IndexedSourceBase {
     id: string,
     metadata: Metadata | undefined,
     private readonly content: string,
+    path?: string,
   ) {
-    super(id, metadata);
+    super(id, metadata, path);
   }
 
   get isIterable(): false {

@@ -1,3 +1,4 @@
+import path from "node:path";
 import { generateText, Output, type LanguageModel } from "ai";
 import { z } from "zod";
 import type { JudgeTask } from "../judge/types";
@@ -21,6 +22,7 @@ Rules:
 - use only facts supported by the selected sources
 - synthesize instead of enumerating
 - mention source titles only when needed for clarity
+- when a source path is provided and a file reference helps, you may include an inline markdown link
 - keep the paragraph dense and relevant to the task`;
 
 const DEFAULT_TIGHTNESS_BY_OBJECTIVE: Record<JudgeTask["objective"], number> = {
@@ -77,6 +79,15 @@ export class ComposerAgent {
     });
   }
 
+  protected getMarkdownLinkTarget(sourcePath: string): string {
+    const normalizedPath = sourcePath.split(path.sep).join("/");
+    if (path.isAbsolute(sourcePath)) {
+      return normalizedPath;
+    }
+
+    return `../${normalizedPath}`;
+  }
+
   protected async buildSourceSection(
     sourceId: string,
     judgedSource: JudgedSource,
@@ -89,6 +100,11 @@ export class ComposerAgent {
       `Judge score: ${decision.score}`,
       `Judge reason: ${decision.reason}`,
     ];
+
+    if (source.path) {
+      lines.push(`Source path: ${source.path}`);
+      lines.push(`Markdown link target: ${this.getMarkdownLinkTarget(source.path)}`);
+    }
 
     if (source.metadata) {
       lines.push(`Source title: ${source.metadata.title}`);
