@@ -1,5 +1,7 @@
 # @contextrie/core
 
+[![npm version](https://img.shields.io/npm/v/%40contextrie%2Fcore?logo=npm)](https://www.npmjs.com/package/@contextrie/core)
+
 Dynamic context curation for long-running agent work, packaged as Contextrie's core TypeScript library.
 
 This package is intentionally small. It gives you the building blocks for:

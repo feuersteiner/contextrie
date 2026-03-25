@@ -1,11 +1,21 @@
 # @contextrie/parsers
 
+[![npm version](https://img.shields.io/npm/v/%40contextrie%2Fparsers?logo=npm)](https://www.npmjs.com/package/@contextrie/parsers)
+
 Node-based file parsers for turning local `.txt`, code/text files, `.md`, and `.csv` files into `@contextrie/core` source instances.
 
 ## Install
 
 ```bash
 npm install @contextrie/parsers @contextrie/core
+```
+
+```bash
+pnpm add @contextrie/parsers @contextrie/core
+```
+
+```bash
+bun add @contextrie/parsers @contextrie/core
 ```
 
 ## Usage
@@ -61,4 +71,4 @@ All file-based sources set `source.path` to the input file path.
 
 - File reading uses `node:fs/promises` and `node:path`
 - Source IDs are generated per parsed source
-- An executable example lives in `parsers/example/index.ts`
+- An executable example lives in `examples/parsers/index.ts`

@@ -1,4 +1,6 @@
-# contextrie-cli
+# @contextrie/cli
+
+[![npm version](https://img.shields.io/npm/v/%40contextrie%2Fcli?logo=npm)](https://www.npmjs.com/package/@contextrie/cli)
 
 Node CLI for indexing local sources and composing task-specific context with Contextrie.
 
@@ -13,7 +15,7 @@ The CLI writes its working files under `.contextrie/` in the current project:
 Install globally with npm:
 
 ```bash
-npm install -g contextrie-cli
+npm install -g @contextrie/cli
 ```
 
 Then run:
@@ -38,7 +40,7 @@ For the standalone macOS arm64 binary, use the separate compiled artifact and Ho
 ## Usage
 
 ```bash
-bun run ./index.ts --help
+contextrie --help
 ```
 
 ```text
@@ -52,13 +54,13 @@ Usage
 Index explicit files, directories, or globs:
 
 ```bash
-bun run ./index.ts --index README.md core parsers
+contextrie --index README.md core parsers
 ```
 
 Index all supported source files in the current repository:
 
 ```bash
-bun run ./index.ts --index --all
+contextrie --index --all
 ```
 
 Supported files are filtered through `@contextrie/parsers`, and indexed metadata is written to `.contextrie/sources.json`.
@@ -68,7 +70,7 @@ Supported files are filtered through `@contextrie/parsers`, and indexed metadata
 After indexing, compose a task-specific context bundle:
 
 ```bash
-bun run ./index.ts --task "Explain which files matter most for the CLI indexing flow."
+contextrie --task "Explain which files matter most for the CLI indexing flow."
 ```
 
 This writes the final output to `.contextrie/context.md`.
