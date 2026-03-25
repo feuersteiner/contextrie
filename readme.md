@@ -17,11 +17,38 @@
 
 AI agents get worse as irrelevant context piles up. Contextrie helps you select, index, judge, and compose the right context for each task so long-running agent systems stay sharp.
 
-Contextrie is a context-engineering toolkit for agent workflows. Published packages now include `@contextrie/core` and `@contextrie/parsers`.
+Contextrie is a context-engineering toolkit for agent workflows.
+
+Use it in two ways:
+
+- as a library inside your own agent system with `@contextrie/core` and `@contextrie/parsers`
+- as a local CLI that indexes project files and composes task-specific context into `.contextrie/context.md`
+
+Status: early development; expect breaking changes.
 
 ---
 
 ## Start Here
+
+### CLI quickstart
+
+Use the CLI from this repo to index local files and compose context for a task.
+
+```bash
+cd cli
+bun install
+bun run ./index.ts --index --all --openai-api-key "$OPENAI_API_KEY" --openai-model "gpt-5.4"
+bun run ./index.ts --task "Summarize the files most relevant to parser source path handling."
+```
+
+This writes:
+
+- `.contextrie/sources.json`: indexed source metadata
+- `.contextrie/context.md`: the composed task-specific context
+
+Use `--openai-base-url` as well if you are targeting an OpenAI-compatible provider.
+
+### Library quickstart
 
 Install the packages:
 
@@ -92,9 +119,9 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 
 - `@contextrie/core`: published now, TypeScript contracts and core agents
 - `@contextrie/parsers`: published now, file parsers for `.csv`, `.md`, and `.txt`
+- `cli`: Bun CLI for indexing local text sources and composing task-specific context
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
-- `cli`: planned
 - `python`: planned
 
 ---
