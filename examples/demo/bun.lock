@@ -6,7 +6,7 @@
       "name": "contextrie-simple-demo",
       "devDependencies": {
         "@ai-sdk/openai": "^3.0.41",
-        "@contextrie/core": "0.2.1",
+        "@contextrie/core": "0.2.2",
         "@types/bun": "latest",
       },
       "peerDependencies": {
@@ -23,7 +23,7 @@
 
     "@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@4.0.21", "", { "dependencies": { "@ai-sdk/provider": "3.0.8", "@standard-schema/spec": "^1.1.0", "eventsource-parser": "^3.0.6" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-MtFUYI1/8mgDvRmaBDjbLJPFFrMG777AvSgyIFQtZHIMzm88R/12vYBBpnk7pfiWLFE1DSZzY4WDYzGbKAcmiw=="],
 
-    "@contextrie/core": ["@contextrie/core@0.2.1", "", { "dependencies": { "ai": "^6.0.116", "zod": "^4.1.11" } }, "sha512-yQ/rni/rFfuEIhRWtSfGxNcygXIgOXenw0lOC46nYXdSpTBpqb03i7hRU3j/tePmbuoZt97mxBXMH3U0gLx4OA=="],
+    "@contextrie/core": ["@contextrie/core@0.2.2", "", { "dependencies": { "ai": "^6.0.116", "zod": "^4.1.11" } }, "sha512-w4pv+iZRVS/esZdtFzt+hO8PR3lMlaOXrbuN20JrUVWlQRBZ+X+mQjzDC4ly7kvm4oyJggdzf0jbG6Hyicy9/Q=="],
 
     "@opentelemetry/api": ["@opentelemetry/api@1.9.0", "", {}, "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="],
 

@@ -27,6 +27,6 @@ Standalone parser example package using the published `@contextrie/parsers` pack
 
 It shows:
 
-- short CSV parsed as `DocumentSource`
-- longer CSV parsed as `ListSource`
+- short and long CSV parsed as `ListSource`
 - markdown and text fixtures parsed from local files
+- file-backed text parsing with source paths

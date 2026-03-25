@@ -2,17 +2,14 @@
 
 Standalone example package for `@contextrie/parsers`.
 
-It parses four local files and prints the resulting source kind, source id, and content:
+It parses the local fixture files and prints the resulting source kind, source path, and content:
 
 - `files/example-short.csv`
 - `files/example.csv`
 - `files/example.md`
 - `files/example.txt`
 
-The two CSV fixtures intentionally cover both parser branches:
-
-- short/simple CSV => `document`
-- longer CSV => `list`
+The two CSV fixtures both parse to `list` rows in the current parser behavior.
 
 ## Run
 
@@ -25,4 +22,4 @@ bun run index.ts
 
 - consuming the published `@contextrie/parsers` package
 - parsing local `.csv`, `.md`, and `.txt` fixtures
-- comparing `DocumentSource` and `ListSource` output shapes
+- showing `source.path` propagation and the `ReferenceDocumentSource` text parser
