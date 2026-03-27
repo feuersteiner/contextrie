@@ -1,21 +1,42 @@
-[tool.poetry]
-name = "contextrie-convert"
-version = "0.1.0"
-description = "PDF-to-markdown converter using Docling"
-packages = [{ include = "contextrie_convert", from = "src" }]
-
-[tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-docling = ">=2.70.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "*"
-pytest-cov = "*"
-reportlab = "*"
-
-[tool.poetry.scripts]
-contextrie-convert = "contextrie_convert.cli:main"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "contextrie"
+version = "0.1.0"
+description = "Dynamic context curation for long-running agent work, packaged as Contextrie's Python core library."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+  { name = "Contextrie" }
+]
+keywords = ["ai", "agents", "context", "retrieval", "rag", "python"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://github.com/feuersteiner/contextrie/tree/main/python"
+Repository = "https://github.com/feuersteiner/contextrie.git"
+Issues = "https://github.com/feuersteiner/contextrie/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/contextrie"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/contextrie", "tests", "README.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
