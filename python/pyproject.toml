@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "contextrie-convert"
+version = "0.1.0"
+description = "PDF-to-markdown converter using Docling"
+packages = [{ include = "contextrie_convert", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+docling = ">=2.70.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+reportlab = "*"
+
+[tool.poetry.scripts]
+contextrie-convert = "contextrie_convert.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

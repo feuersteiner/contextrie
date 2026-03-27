@@ -10,11 +10,13 @@ This package is intentionally small. It gives you the building blocks for:
 - generating source metadata
 - judging source relevance for a task
 - composing a tight context from judged sources
+- section-oriented ingestion helpers for structured documents
 
-It does not handle IO, parsing, crawling, or storage.
+It does not handle IO, crawling, or storage.
 
 ## Install
 
+<<<<<<< HEAD
 ```bash
 npm install @contextrie/core ai zod
 ```
@@ -42,10 +44,13 @@ If you need plain precompiled JavaScript output for direct Node consumption, bui
 ## What the package includes
 
 - `IndexedSourceBase`: base contract for retrieval-ready sources
-- `DocumentSource`, `ListSource`, `ReferenceDocumentSource`, `ReferenceListSource`: source implementations
+- `DocumentSource`, `ListSource`, `ReferenceDocumentSource`, `ReferenceListSource`, `ComplexDocumentSource`: source implementations
 - `IndexingAgent`: generates metadata from source content
 - `JudgeAgent`: scores source relevance for a task
 - `ComposerAgent`: condenses judged sources into a single context paragraph
+- `flatMapSections`: generates per-section metadata for section trees
+- `mapReduceSections`: rolls section metadata bottom-up through a tree
+- `parseMarkdownSections`: parses markdown headings into section trees
 
 ## Quick example
 
@@ -104,7 +109,7 @@ console.log(context);
 ## Package boundaries
 
 - no filesystem or network IO abstractions
-- no parsing or source discovery
+- no source discovery
 - no storage or persistence layer
 - no framework-specific adapters
 
