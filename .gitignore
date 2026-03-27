@@ -4,3 +4,4 @@
 .DS_STORE
 plan.md
 .tmp
+node_modules
