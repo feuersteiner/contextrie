@@ -125,7 +125,7 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 - `@contextrie/cli`: published npm CLI for indexing local sources and composing task-specific context
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
-- `python`: planned
+- `python`: Python core library with mirrored source and agent contracts
 
 ---
 
@@ -148,7 +148,6 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 ## Roadmap 🚧
 
 - Benchmark harness and eval protocol
-- Python support
 - Hosted docs site
 - CLI binary distribution
 - More examples and eval coverage
@@ -176,7 +175,7 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
-├─ python/        Python package (stub)
+├─ python/        Python core library
 └─ README.md      Project overview
 ```
 
