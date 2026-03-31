@@ -123,6 +123,7 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 - `@contextrie/core`: published now, TypeScript contracts and core agents
 - `@contextrie/parsers`: published now, file parsers for `.csv`, `.md`, and `.txt`
 - `@contextrie/cli`: published npm CLI for indexing local sources and composing task-specific context
+- `coding-agent`: planned coding agent harness with a stub README in `coding-agent/README.md`
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
 - `python`: Python core library with mirrored source and agent contracts
@@ -141,13 +142,13 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 
 Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalone package example that consumes `@contextrie/parsers` and parses local files into Contextrie sources.
 
-Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
+Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md), and the coding agent harness stub lives in [`coding-agent/README.md`](./coding-agent/README.md).
 
 ---
 
 ## Roadmap 🚧
 
-- Benchmark harness and eval protocol
+- Coding agent harness and eval protocol
 - Hosted docs site
 - CLI binary distribution
 - More examples and eval coverage
@@ -172,6 +173,7 @@ Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md).
 ├─ assets/        Visuals and branding
 ├─ benchmarks/    Benchmark protocol and future harness
 ├─ cli/           Published npm CLI package
+├─ coding-agent/  Coding agent harness stub and future implementation
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples

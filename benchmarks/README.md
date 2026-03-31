@@ -6,6 +6,8 @@
 
 Planned. This directory defines the benchmark direction. It does not yet ship a runnable harness.
 
+The coding agent harness stub currently lives in `../coding-agent/README.md`.
+
 ## What this is
 
 `benchmarks` is the repo place for defining how Contextrie should be evaluated against generic agent coding workflows.
