@@ -29,6 +29,7 @@
 			<ul>
 				<li><strong>core</strong> for contracts and source primitives</li>
 				<li><strong>cli</strong> for the command-line wrapper</li>
+				<li><strong>coding-agent</strong> for the coding agent harness</li>
 				<li><strong>docs</strong> for the public-facing explanation layer</li>
 			</ul>
 		</article>
