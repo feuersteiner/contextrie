@@ -14,6 +14,7 @@ import {
   JudgeAgent,
   type IndexedSourceBase,
   ListSource,
+  ManifestSource,
   type Metadata,
 } from "@contextrie/core";
 import {
@@ -48,6 +49,14 @@ interface SourceManifest {
   version: 1;
   sources: SourceManifestRecord[];
 }
+
+interface JudgedManifestSourceRecord {
+  record: SourceManifestRecord;
+  score: number;
+}
+
+const COMPOSER_MIN_SCORE = 0.75;
+const COMPOSER_TOP_PERCENT = 0.25;
 
 const cli = meow(
   `
@@ -444,11 +453,56 @@ const loadManifest = async (rootDirectory: string): Promise<SourceManifest> => {
   return await readJsonFile<SourceManifest>(manifestPath);
 };
 
+const buildManifestSources = (
+  records: SourceManifestRecord[],
+): IndexedSourceBase[] =>
+  records.map(
+    (record) =>
+      new ManifestSource(record.id, record.kind, record.metadata, record.path),
+  );
+
 const buildReferenceSources = async (
   rootDirectory: string,
   records: SourceManifestRecord[],
 ): Promise<IndexedSourceBase[]> =>
   await Promise.all(records.map((record) => rehydrateSource(rootDirectory, record)));
+
+const selectComposerSourceRecords = (
+  records: SourceManifestRecord[],
+  judgments: Record<string, { score: number }>,
+): SourceManifestRecord[] => {
+  const ranked: JudgedManifestSourceRecord[] = records
+    .map((record) => ({
+      record,
+      score: judgments[record.id]?.score ?? 0,
+    }))
+    .sort((left, right) => {
+      const scoreDelta = right.score - left.score;
+      if (scoreDelta !== 0) {
+        return scoreDelta;
+      }
+
+      return left.record.id.localeCompare(right.record.id);
+    });
+
+  const minimumSelectedCount = Math.max(
+    1,
+    Math.ceil(ranked.length * COMPOSER_TOP_PERCENT),
+  );
+  const selectedById = new Set(
+    ranked.slice(0, minimumSelectedCount).map(({ record }) => record.id),
+  );
+
+  for (const { record, score } of ranked) {
+    if (score >= COMPOSER_MIN_SCORE) {
+      selectedById.add(record.id);
+    }
+  }
+
+  return ranked
+    .filter(({ record }) => selectedById.has(record.id))
+    .map(({ record }) => record);
+};
 
 const runIndex = async (rootDirectory: string): Promise<void> => {
   const config = await resolveConfig(rootDirectory);
@@ -499,12 +553,14 @@ const runTask = async (rootDirectory: string, task: string): Promise<void> => {
 
   const config = await resolveConfig(rootDirectory);
   const manifest = await loadManifest(rootDirectory);
-  const sources = await buildReferenceSources(rootDirectory, manifest.sources);
+  const manifestSources = buildManifestSources(manifest.sources);
   const model = createModel(config);
-  const judgments = await new JudgeAgent(model).from(sources).run({
+  const judgments = await new JudgeAgent(model).from(manifestSources).run({
     objective: "response",
     input: trimmedTask,
   });
+  const selectedRecords = selectComposerSourceRecords(manifest.sources, judgments);
+  const sources = await buildReferenceSources(rootDirectory, selectedRecords);
 
   const judgedRecord = Object.fromEntries(
     sources.map((source) => {
