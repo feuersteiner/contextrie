@@ -1,3 +1,12 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
-console.log("Hello world from Contextrie");
+import { Command } from "commander";
+
+const program = new Command();
+
+program.name("contextrie-harness");
+program.action(() => {
+  console.log("Hello world from Contextrie");
+});
+
+program.parse();
