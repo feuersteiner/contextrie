@@ -5,3 +5,4 @@ export type {
   TaskHistoryEntry,
   TaskStatus,
 } from "./types/task";
+export * from "./services";
