@@ -131,3 +131,25 @@ Rules:
 ### `task delete <taskId>`
 
 Deletes a task file.
+
+## Development
+
+### Run the CLI directly
+
+```bash
+bun run cli/index.ts
+```
+
+### Link the CLI locally
+
+From the `coding-agent` directory:
+
+```bash
+bun link
+```
+
+Then run the linked binary:
+
+```bash
+contextrie-harness
+```
