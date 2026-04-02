@@ -1,6 +1,9 @@
 {
   "name": "@contextrie/coding-harness",
   "version": "0.1.0",
+  "bin": {
+    "contextrie-harness": "./cli/index.ts"
+  },
   "module": "index.ts",
   "type": "module",
   "private": true,
