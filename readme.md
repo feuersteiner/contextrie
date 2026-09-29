@@ -6,7 +6,7 @@
   <a href="https://www.npmjs.com/package/@contextrie/core" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcore?label=%40contextrie%2Fcore&logo=npm" alt="@contextrie/core"></a>
   <a href="https://www.npmjs.com/package/@contextrie/parsers" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fparsers?label=%40contextrie%2Fparsers&logo=npm" alt="@contextrie/parsers"></a>
   <a href="https://www.npmjs.com/package/@contextrie/cli" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/%40contextrie%2Fcli?label=%40contextrie%2Fcli&logo=npm" alt="@contextrie/cli"></a>
-  <a href="https://discord.gg/ayX9hm4D" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://discord.gg/MNPjH4JGUr" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Discord-Join_Chat-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 ![Contextrie header](./assets/github-header.png)
