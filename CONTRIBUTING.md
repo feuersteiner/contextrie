@@ -9,7 +9,6 @@ Keep changes small, direct, and package-scoped.
 - Keep package boundaries intact:
   - `core`: minimal contracts and agents, avoid IO in the package surface
   - `parsers`: keep parser code small and direct
-  - `python`: mirror `core` package boundaries where applicable
   - `coding-agent`: services orchestrate; shared types stay central; command-specific builders stay close to the service that uses them
 - Update docs when behavior, structure, or commands change.
 
