@@ -9,7 +9,6 @@ Keep changes small, direct, and package-scoped.
 - Keep package boundaries intact:
   - `core`: minimal contracts and agents, avoid IO in the package surface
   - `parsers`: keep parser code small and direct
-  - `coding-agent`: services orchestrate; shared types stay central; command-specific builders stay close to the service that uses them
 - Update docs when behavior, structure, or commands change.
 
 ## Before You Open A PR
