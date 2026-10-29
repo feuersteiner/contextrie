@@ -123,7 +123,6 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 - `@contextrie/core`: published now, TypeScript contracts and core agents
 - `@contextrie/parsers`: published now, file parsers for `.csv`, `.md`, and `.txt`
 - `@contextrie/cli`: published npm CLI for indexing local sources and composing task-specific context
-- `coding-agent`: planned coding agent harness with a stub README in `coding-agent/README.md`
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
 
