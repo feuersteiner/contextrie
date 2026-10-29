@@ -21,4 +21,3 @@ Keep changes small, direct, and package-scoped.
 
 - `core/CONTRIBUTING.md`
 - `parsers/CONTRIBUTING.md`
-- `coding-agent/CONTRIBUTING.md`
