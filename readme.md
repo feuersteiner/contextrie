@@ -126,7 +126,6 @@ Most agent systems fail gradually, not instantly. They accumulate irrelevant con
 - `coding-agent`: planned coding agent harness with a stub README in `coding-agent/README.md`
 - `benchmarks`: benchmark definitions and protocol for evaluating agent workflows
 - `docs`: documentation site in progress
-- `python`: Python core library with mirrored source and agent contracts
 
 ---
 
