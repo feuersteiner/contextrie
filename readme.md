@@ -198,7 +198,6 @@ flowchart LR
 Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
 
 For library usage, start with [`core/README.md`](core/README.md).
-For evaluation work, start with [`benchmarks/README.md`](benchmarks/README.md).
 
 ---
 
