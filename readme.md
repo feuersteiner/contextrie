@@ -139,8 +139,6 @@ Start with [`examples/demo/README.md`](./examples/demo/README.md) for the smalle
 
 Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalone package example that consumes `@contextrie/parsers` and parses local files into Contextrie sources.
 
-Benchmark planning lives in [`benchmarks/README.md`](./benchmarks/README.md), and the coding agent harness stub lives in [`coding-agent/README.md`](./coding-agent/README.md).
-
 ---
 
 ## Roadmap 🚧
