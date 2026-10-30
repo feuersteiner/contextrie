@@ -166,7 +166,6 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 .
 ├─ assets/        Visuals and branding
 ├─ cli/           Published npm CLI package
-├─ coding-agent/  Coding agent harness stub and future implementation
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
