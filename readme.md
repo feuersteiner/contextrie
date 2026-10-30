@@ -143,7 +143,6 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 
 ## Roadmap 🚧
 
-- Coding agent harness and eval protocol
 - Hosted docs site
 - CLI binary distribution
 - More examples and eval coverage
