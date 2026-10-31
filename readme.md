@@ -122,14 +122,6 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 
 ---
 
-## Roadmap 🚧
-
-- Hosted docs site
-- CLI binary distribution
-- More examples and eval coverage
-
----
-
 ## Call To Action
 
 - Install and try `@contextrie/core`
