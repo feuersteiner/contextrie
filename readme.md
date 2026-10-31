@@ -99,12 +99,6 @@ console.log(context);
 
 ---
 
-## Why It Exists
-
-Most agent systems fail gradually, not instantly. They accumulate irrelevant context, lose precision, and waste tokens. Contextrie makes context selection a first-class part of the system instead of an afterthought.
-
----
-
 ## Packages
 
 - `@contextrie/core`: published now, TypeScript contracts and core agents
