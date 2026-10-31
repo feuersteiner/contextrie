@@ -170,7 +170,7 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
 ├─ parsers/       File parsing library (npm)
-└─ README.md      Project overview
+└─ readme.md      Project overview
 ```
 
 ---
