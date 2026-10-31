@@ -99,19 +99,6 @@ console.log(context);
 
 ---
 
-## What This Is
-
-Contextrie is for systems where agents should not see everything all the time.
-
-It gives you primitives to:
-
-- define sources around the content you want to retrieve
-- generate metadata for those sources
-- score relevance against a task
-- compose a tighter working context for the next agent step
-
----
-
 ## Why It Exists
 
 Most agent systems fail gradually, not instantly. They accumulate irrelevant context, lose precision, and waste tokens. Contextrie makes context selection a first-class part of the system instead of an afterthought.
