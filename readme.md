@@ -169,7 +169,7 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 ├─ core/          TypeScript library (npm)
 ├─ docs/          SvelteKit documentation site
 ├─ examples/      Minimal examples
-├─ python/        Python core library
+├─ parsers/       File parsing library (npm)
 └─ README.md      Project overview
 ```
 
