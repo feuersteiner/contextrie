@@ -152,14 +152,8 @@ flowchart LR
 
 ---
 
-## Getting Started
+## Development
 
-Each package maintains its own development and contribution instructions. Start in the package README for the area you are working on.
+Each package installs dependencies independently. Run `bun install` in the relevant directory, then use its commands:
 
-For library usage, start with [`core/README.md`](core/README.md).
-
----
-
-## Status
-
-Early development; expect breaking changes.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines.
