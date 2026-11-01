@@ -2,7 +2,7 @@
 
 Docs site for Contextrie. Work in progress.
 
-## Focus
+## Development
 
 - present the product clearly
 - document the package layout
