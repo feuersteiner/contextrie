@@ -156,4 +156,11 @@ flowchart LR
 
 Each package installs dependencies independently. Run `bun install` in the relevant directory, then use its commands:
 
+| Directory | Commands | Guide |
+| --- | --- | --- |
+| `core/` | `bun run typecheck` | [Core](./core/README.md) |
+| `parsers/` | `bun run typecheck` | [Parsers](./parsers/README.md) |
+| `cli/` | `bun run typecheck`, `bun run build` | [CLI](./cli/README.md) |
+| `docs/` | `bun run dev`, `bun run check`, `bun run build` | [Docs](./docs/README.md) |
+
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines.
