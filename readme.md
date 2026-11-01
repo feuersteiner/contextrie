@@ -122,17 +122,6 @@ Use [`examples/parsers/README.md`](./examples/parsers/README.md) for a standalon
 
 ---
 
-## Call To Action
-
-- Install and try `@contextrie/core`
-- Install and try `@contextrie/parsers`
-- Read the manifesto
-- Watch the demo
-- Join the Discord
-- Open an issue if you want a parser, adapter, or language target
-
----
-
 ## Repo Layout
 
 ```
