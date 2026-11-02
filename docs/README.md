@@ -10,3 +10,10 @@ Run from this directory:
 bun install
 bun run dev
 ```
+
+## Validation
+
+```bash
+bun run check
+bun run build
+```
