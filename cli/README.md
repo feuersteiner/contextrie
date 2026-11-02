@@ -35,7 +35,12 @@ bun run ./index.ts --task "Summarize the files most relevant to parser source pa
 
 Use `--openai-base-url` as well if you are targeting an OpenAI-compatible provider.
 
-For the standalone macOS arm64 binary, use the separate compiled artifact and Homebrew flow. That is distinct from the npm `bin` entrypoint.
+To build a standalone macOS arm64 binary locally:
+
+```bash
+bun run build:darwin-arm64
+./dist/contextrie-darwin-arm64 --help
+```
 
 ## Usage
 
