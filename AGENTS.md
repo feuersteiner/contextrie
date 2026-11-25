@@ -20,4 +20,4 @@ Feature directories currently contain empty command classes and type modules. Re
 
 Use Bun and TypeScript. Install dependencies with `bun install`; `bun run index.ts` only loads the scaffold. Run `./node_modules/.bin/tsc --noEmit` for type checking and `git diff --check` before committing. No package scripts or tests exist yet.
 
-Keep changes scoped to the requested work and keep README indexes aligned with the repository layout. Commit and push only when authorized.
+Keep changes scoped to the requested work and keep README indexes aligned with the repository layout. Persist agreed design decisions in README.md or relevant scoped documentation as part of the changes, and present them for user review before committing. Commit and push only with explicit authorization.
