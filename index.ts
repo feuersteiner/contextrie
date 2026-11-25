@@ -1,1 +1,1 @@
-console.log("Hello via Bun!");
+export { Contextrie } from './src/index.ts';
